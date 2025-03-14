@@ -1,0 +1,19 @@
+$tab-size: 31;
+$tile-size: 181;
+$pieces-per-board: 20;
+$total-pieces: $pieces-per-board * 2;
+$board-width: 5;
+$board-height: 4;
+$border-width: 14;
+
+/* stylelint-disable */
+:export {
+	borderWidth: $border-width;
+	tabSize: $tab-size;
+	tileSize: $tile-size;
+	piecesPerBoard: $pieces-per-board;
+	totalPieces: $total-pieces;
+	boardWidth: $board-width;
+	boardHeight: $board-height;
+}
+/* stylelint-enable */

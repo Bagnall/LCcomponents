@@ -1,0 +1,161 @@
+// Piece.scss
+
+@use "../../../styles/_mixins.module.scss" as *;
+@use "../../../styles/_variables.module.scss" as *;
+
+.show-hints {
+	.piece {
+		&.highlight {
+			&::after {
+				content: "";
+				width: 100%;
+				height: 100%;
+				background: rgb(201, 255, 122);
+				background: radial-gradient(circle, rgba(201, 255, 122, 1) 0%, rgba(0, 212, 255, 0) 100%);
+				z-index: 14;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+		&.wrong-set {
+			&::after {
+				content: "";
+				width: 100%;
+				height: 100%;
+				background: rgb(255, 122, 122);
+				background: radial-gradient(circle, rgb(255, 122, 122) 0%, rgba(0, 212, 255, 0) 100%);
+				z-index: 14;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+	}
+}
+
+.piece {
+	position: absolute;
+	width: $tile-size * 1px;
+	height: $tile-size * 1px;
+	mask-image: url("../images/iifi.png");
+	mask-repeat: no-repeat;
+	mask-size: auto;
+	background-color: green;
+	background-image: url("../images/correct.jpg");
+	box-sizing: content-box;
+	mask-position: center center;
+	z-index: 10;
+	transition-property: left, top;
+	transition-duration: 1s;
+	&.dragging {
+		z-index: 11; // Over the other pieces
+		transition-property: none;
+		transition-duration: 1s;
+		cursor: grab;
+	}
+	@for $x from 0 through 4 {
+		@for $y from 0 through 3 {
+			&:nth-of-type(#{$x + $y*5 + 1}) {
+				left: Calc($x * $tile-size * 1px);
+				top: Calc($y * $tile-size * 1px);
+				background-position: calc($x * -119px) calc($y * -119px);
+				// For debug
+				// &::after {
+				// 	content: "{$x}, $y";
+				// 	position: absolute;
+				// 	top: 20px;
+				// 	left: 20px;
+				// 	color: red;
+				// }
+			}
+			&:nth-of-type(#{$x + $y * 5 + 21}) {
+				left: Calc(($x + 5) * $tile-size * 1px);
+				top: Calc($y * $tile-size * 1px);
+				background-image: url("../images/incorrect.jpg");
+				background-position: calc($x * -119px) calc($y * -119px);
+				background-color: red;
+			}
+		}
+	}
+	&:nth-of-type(1),
+	&:nth-of-type(21) {
+		mask-image: url(../images/fiof.png);
+	}
+	&:nth-of-type(2),
+	&:nth-of-type(22) {
+		mask-image: url(../images/foio.png);
+	}
+	&:nth-of-type(3),
+	&:nth-of-type(23) {
+		mask-image: url(../images/fioi.png);
+	}
+	&:nth-of-type(4),
+	&:nth-of-type(24) {
+		mask-image: url(../images/fioo.png);
+	}
+	&:nth-of-type(5),
+	&:nth-of-type(25) {
+		mask-image: url(../images/ffio.png);
+	}
+	&:nth-of-type(6),
+	&:nth-of-type(26) {
+		mask-image: url(../images/ioof.png);
+	}
+	&:nth-of-type(7),
+	&:nth-of-type(27) {
+		mask-image: url(../images/oooi.png);
+	}
+	&:nth-of-type(8),
+	&:nth-of-type(28) {
+		mask-image: url(../images/ioii.png);
+	}
+	&:nth-of-type(9),
+	&:nth-of-type(29) {
+		mask-image: url(../images/iioi.png);
+	}
+	&:nth-of-type(10),
+	&:nth-of-type(30) {
+		mask-image: url(../images/ofio.png);
+	}
+	&:nth-of-type(11),
+	&:nth-of-type(31) {
+		mask-image: url(../images/ioof.png);
+	}
+	&:nth-of-type(12),
+	&:nth-of-type(32) {
+		mask-image: url(../images/ioii.png);
+	}
+	&:nth-of-type(13),
+	&:nth-of-type(33) {
+		mask-image: url(../images/oioi.png);
+	}
+	&:nth-of-type(14),
+	&:nth-of-type(34) {
+		mask-image: url(../images/iioo.png);
+	}
+	&:nth-of-type(15),
+	&:nth-of-type(35) {
+		mask-image: url(../images/ofio.png);
+	}
+	&:nth-of-type(16),
+	&:nth-of-type(36) {
+		mask-image: url(../images/iiff.png);
+	}
+	&:nth-of-type(17),
+	&:nth-of-type(37) {
+		mask-image: url(../images/oifo.png);
+	}
+	&:nth-of-type(18),
+	&:nth-of-type(38) {
+		mask-image: url(../images/iofo.png);
+	}
+	&:nth-of-type(19),
+	&:nth-of-type(39) {
+		mask-image: url(../images/iifi.png);
+	}
+	&:nth-of-type(20),
+	&:nth-of-type(40) {
+		mask-image: url(../images/offo.png);
+	}
+}
