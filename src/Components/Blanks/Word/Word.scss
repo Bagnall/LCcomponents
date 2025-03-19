@@ -1,0 +1,71 @@
+// Word.scss
+
+@use "../../../styles/_mixins.module.scss" as *;
+@use "../../../styles/_variables.module.scss" as *;
+
+.show-hints {
+	.word {
+		&.highlight {
+			&::after {
+				content: "";
+				width: 100%;
+				height: 100%;
+				background: rgb(201, 255, 122);
+				background: radial-gradient(circle, rgba(201, 255, 122, 1) 0%, rgba(0, 212, 255, 0) 100%);
+				z-index: 14;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+	}
+}
+@mixin ph {
+	box-shadow: 8px 8px 8px gray;
+	border: 1px solid darkgray;
+	padding: 0.5rem 1rem;
+	background: white;
+	font-size: 1.2rem;
+	font-weight: bold;
+	line-height: 1.4rem;
+	height: 1.4rem;
+}
+.word {
+	z-index: 10;
+	transition-property: left, top;
+	transition-duration: 1s;
+	// cursor: pointer;
+	user-select: none;
+
+	&.blank {
+		@include ph;
+		position: relative;
+		margin: 1rem;
+	}
+	&.placeholder,
+	&.target {
+		position: relative;
+	}
+
+	&.dragged {
+		position: absolute;
+		transition-property: left, top;
+		transition-duration: 1s;
+		cursor: grab;
+	}
+
+	&.dragging {
+		position: absolute;
+		z-index: 11; // Over the other pieces
+		transition-property: left, top;
+		transition-duration: 0s;
+		cursor: grab;
+	}
+
+	&.placed {
+		position: absolute;
+		cursor: default;
+		transition-property: left, top;
+		transition-duration: 1s;
+	}
+}

@@ -13,115 +13,96 @@
 	z-index: 1;
 	margin: auto;
 	max-width: 1200px;
-}
 
-.jigsaw,
-.target {
-	display: block;
-	z-index: 1;
-}
+	touch-action: none;
 
-.jigsaw {
-	// 629 x 508
-	line-height: 1.4em;
-	position: relative;
-	overflow: visible;
-	width: $tile-size * 10px;
-	height: $tile-size * 8px;
-	&::before {
-		content: "";
+	.jigsaw,
+	.target {
+		display: block;
+		z-index: 1;
+	}
+
+	.jigsaw {
+		// 629 x 508
+		line-height: 1.4em;
+		position: relative;
+		overflow: visible;
 		width: $tile-size * 10px;
-		height: $tile-size * 4px;
-		background: lightgray;
-		border: ($border-width * 1px) lightgray solid;
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	transform: scale(0.4);
-	transform-origin: center top;
-	margin-bottom: $tile-size * -2.4px;
-	box-sizing: border-box;
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: column;
-}
-
-.congratulations {
-	position: absolute;
-	text-align: center;
-	width: 80%;
-	top: 40px;
-	background: white;
-	font-size: 160px;
-	z-index: 20;
-	color: darkblue;
-	border: $border-width * 1px ridge darkblue;
-	transform-origin: center center;
-	transform: scale(0.01);
-	opacity: 0;
-	transition-property: transform, opacity;
-	transition-duration: 1s;
-	border-radius: 20px;
-	&.show {
-		transform: scale(1);
-		opacity: 1;
-		transition-property: transform, opacity;
-	}
-}
-
-p.clue {
-	font-size: 1.4rem;
-	font-weight: bold;
-}
-.help {
-	padding: 1rem;
-	display: flex;
-	justify-content: space-evenly;
-	width: 600px;
-}
-.hidden-help {
-	opacity: 0;
-	transition: opacity 4s;
-	&.show {
-		opacity: 1;
-		transition: opacity 4s;
-	}
-}
-.audio-clip {
-	display: flex;
-	align-items: center;
-}
-
-.target {
-	position: absolute;
-	top: $tile-size * 4px + $border-width * 3;
-	width: $tile-size * 4px - $tab-size * 3 - 10;
-	height: $tile-size * 3px - $tab-size - 8;
-	background: lightgray;
-	border: ($border-width * 1px) rgb(238, 238, 238) ridge;
-	box-sizing: border-box;
-}
-
-@include respond-above(m) {
-	.jigsaw {
+		height: $tile-size * 8px;
+		&::before {
+			content: "";
+			width: $tile-size * 10px;
+			height: $tile-size * 4px;
+			background: lightgray;
+			border: ($border-width * 1px) lightgray solid;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 		transform: scale(0.4);
+		transform-origin: center top;
+		margin-bottom: $tile-size * -2.4px;
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
 	}
-}
-@include respond-above(l) {
-	.jigsaw {
-		transform: scale(0.5);
+
+	p.clue {
+		font-size: 1.4rem;
+		font-weight: bold;
 	}
-}
-@include respond-above(xl) {
-	.jigsaw {
-		transform: scale(0.5);
+
+	.help {
+		padding: 1rem;
+		display: flex;
+		justify-content: space-evenly;
+		width: 600px;
 	}
-}
-@include respond-above(xxl) {
-	.jigsaw {
-		transform: scale(0.7);
+
+	.hidden-help {
+		opacity: 0;
+		transition: opacity 4s;
+		&.show {
+			opacity: 1;
+			transition: opacity 4s;
+		}
+	}
+
+	.audio-clip {
+		display: flex;
+		align-items: center;
+	}
+
+	.target {
+		position: absolute;
+		top: $tile-size * 4px + $border-width * 3;
+		width: $tile-size * 4px - $tab-size * 3 - 10;
+		height: $tile-size * 3px - $tab-size - 8;
+		background: lightgray;
+		border: ($border-width * 1px) rgb(238, 238, 238) ridge;
+		box-sizing: border-box;
+	}
+	@include respond-above(m) {
+		.jigsaw {
+			transform: scale(0.4);
+		}
+	}
+	@include respond-above(l) {
+		.jigsaw {
+			transform: scale(0.5);
+		}
+	}
+	@include respond-above(xl) {
+		.jigsaw {
+			transform: scale(0.5);
+		}
+	}
+	@include respond-above(xxl) {
+		.jigsaw {
+			transform: scale(0.7);
+		}
 	}
 }

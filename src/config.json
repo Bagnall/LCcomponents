@@ -1,0 +1,118 @@
+{
+	"phrases1": {
+		"id": "phrases1",
+		"congratulationsText": "Well done!",
+		"instructionsText": "Drag the words to fill in the gaps.",
+		"showHintsText": "Show hints when moving",
+		"cheatText": "Cheat",
+		"words": [
+			"mon",
+			"chérie",
+			"toi",
+			"va",
+			"très"
+		],
+		"phrases": [
+			"Coucou [mon] amour ! Ca [va] aujourd’hui?",
+			"Oui, ma [chérie] ! Ça va [très] bien ! Et [toi]?",
+			"Ça va!"
+		],
+		"audio": [
+			"phrase1.mp3",
+			"phrase2.mp3",
+			"phrase3.mp3"
+		]
+	},
+	"phrases2": {
+		"id": "phrases2",
+		"congratulationsText": "Superb!",
+		"instructionsText": "Drag the words to fill in the gaps.",
+		"showHintsText": "Show hints when moving",
+		"cheatText": "Cheat",
+		"words": [
+			"comment",
+			"merci",
+			"vous"
+		],
+		"phrases": [
+			"Bonsoir Monsieur Galipot! [comment] ça va?",
+			"Bonsoir Monsieur Bernard, ça va très bien, merci. Et [vous]?",
+			"Ah pas mal [merci]!"
+		],
+		"audio": [
+			"phrase4.mp3",
+			"phrase5.mp3",
+			"phrase6.mp3"
+		]
+	},
+	"phrases3": {
+		"id": "phrases3",
+		"congratulationsText": "Very good!",
+		"instructionsText": "Drag the words to fill in the gaps.",
+		"showHintsText": "Show hints when moving",
+		"cheatText": "Cheat",
+		"words": [
+			"enfants",
+			"revoir",
+			"appelle",
+			"appelez",
+			"moi"
+		],
+		"phrases": [
+			"Bonjour les [enfants]. Comment vous [appelez]-vous?",
+			"Bonjour Madame! Je m’ [appelle] Annie.",
+			"Et [moi], je m’appelle David.",
+			"D’accord. Très bien!",
+			"Merci Madame ! Bonne journée!",
+			"Au [revoir] les enfants!  Bonne journée!"
+		],
+		"audio": [
+			"phrase7.mp3",
+			"phrase8.mp3",
+			"phrase9.mp3",
+			"phrase10.mp3",
+			"phrase11.mp3",
+			"phrase12.mp3"
+		]
+	},
+	"jigsaw1": {
+		"correctImage": "/src/images/cyclist-horse.jpg",
+		"id": "jigsaw1",
+		"incorrectImage": "/src/images/parrot-jaguar.jpg",
+		"congratulationsText": "Well done! You solved the puzzle!",
+		"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+		"descriptionText": "Un jeune homme, portant un t-shirt rouge, passe à vélo devant un cheval dans un champ par une journée ensoleillée.",
+		"descriptionTextComment": "Foreign language description of picture with nouns, verbs and lots of adjectives.'",
+		"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
+		"showHintsText": "Show hints when moving",
+		"soundFile": "/src/sounds/cyclist-horse.mp3",
+		"cheatText": "Cheat",
+		"listenDescriptionText": "Listen to the description"
+	},
+	"jigsaw2": {
+		"correctImage": "/src/images/parrot-jaguar.jpg",
+		"id": "jigsaw2",
+		"incorrectImage": "/src/images/cyclist-horse.jpg",
+		"congratulationsText": "Squawk! You solved the puzzle!",
+		"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+		"descriptionText": "Un beau perroquet dans une forêt luxuriante mangeant une noix du Brésil tout en regardant un jaguar au sol.",
+		"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
+		"showHintsText": "Show hints when moving",
+		"soundFile": "/src/sounds/parrot-jaguar.mp3",
+		"cheatText": "Cheat",
+		"listenDescriptionText": "Listen to the description"
+	},
+	"jigsaw3": {
+		"correctImage": "/src/images/car-windmill.jpg",
+		"id": "jigsaw3",
+		"incorrectImage": "/src/images/car-cliff-lift.jpg",
+		"congratulationsText": "Vroom! You solved the puzzle!",
+		"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+		"descriptionText": "Une voiture bleue garée devant un moulin à vent.",
+		"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
+		"showHintsText": "Show hints when moving",
+		"soundFile": "/src/sounds/car-windmill.mp3",
+		"cheatText": "Cheat",
+		"listenDescriptionText": "Listen to the description"
+	}
+}

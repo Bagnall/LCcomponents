@@ -1,26 +1,28 @@
 import './Jigsaw.scss';
 import {
-	Piece,
-} from '../../Components';
-import React from 'react';
-import Variables from '../../styles/_variables.module.scss';
-import {
 	arrayIncludesObject,
 	handleResponse,
 } from '../../utility';
 import {
+	AudioClip,
+	Piece,
+} from '../../Components';
+import click from '../../sounds/click.mp3';
+import error from '../../sounds/error.mp3';
+import {
 	mouseRelativeTo,
 } from '../../mouseUtility';
-import tada from './sounds/tada.mp3'
-import click from './sounds/click.mp3'
-import error from './sounds/error.mp3'
+import React from 'react';
+import tada from '../../sounds/tada.mp3';
+import Variables from '../../styles/_variables.module.scss';
 
 export class Jigsaw extends React.PureComponent {
 
 	// Contains a location for unplaced pieces and a target to drag them to.
+	// config is passed from the parent so that multiple exercises are possible.
 	// config.json enables the text to be changed for different languages/content.
 	// correct.jpg and incorrect.jpg can be changed out.
-	// The pieces are randomised from the correct image and from the incorrect image. 
+	// The pieces are randomised from the correct image and from the incorrect image.
 	// The point is for the student to read the description of the final puzzle image and choose pieces accordingly.
 
 	constructor(props) {
@@ -44,14 +46,16 @@ export class Jigsaw extends React.PureComponent {
 		borderWidth = parseInt(borderWidth);
 
 		// We will use Pieces to build up our JSX for the pieces
-		let Pieces = new Array;
-		let usedSpaces = new Array; // So we can track where pieces have been randomised to and therefore not get conflicts
+		const Pieces = new Array;
+		const usedSpaces = new Array; // So we can track where pieces have been randomised to and therefore not get conflicts
 
 		// Initial x,y
 		let r = Math.random();
 		let x = parseInt(r * boardWidth);
 		r = Math.random();
 		let y = parseInt(r * boardHeight);
+
+		const { correctImage, incorrectImage } = this.props.config;
 
 		for (let i = 1; i <= piecesPerBoard * 2; i++) {
 			// Keep trying again if the space is taken
@@ -69,30 +73,32 @@ export class Jigsaw extends React.PureComponent {
 			// correctx and correcty are valid place where the piece can be placed in the puzzle
 			Pieces.push(<Piece
 				index={i}
-				// correctImage={correctImage}
+				correctImage={correctImage}
 				correctx={(i - 1) % boardWidth}
 				correcty={parseInt((i - 1) / boardWidth)}
 				correctSet={i <= piecesPerBoard}
 				handleMouseDown={this.handleMouseDown}
 				handleMouseMove={this.handleMouseMove}
 				handleMouseUp={this.handleMouseUp}
-				// incorrectImage={incorrectImage}
+				incorrectImage={incorrectImage}
 				x={x * tileSize}
 				y={y * tileSize}
 				key={`Piece${i}`}
-				style={{"color":"red" , "backgroundImage":"./images/incorrect.jpg"}}
 			/>);
 		}
 
-		// Grab some itmes from the DOM
+		// Grab some items from the DOM
 		this.congratulationsRef = React.createRef();
 		this.jigsawRef = React.createRef();
 		this.targetRef = React.createRef();
 
+		const { config } = props;
+
 		this.state = ({
+			...config,
 			Pieces: Pieces,
 			borderWidth: borderWidth,
-			margin: tileSize / 6,
+			margin: tileSize / 4,
 			piecesPerBoard: piecesPerBoard,
 			tabSize: tabSize,
 			tileSize: tileSize,
@@ -101,25 +107,26 @@ export class Jigsaw extends React.PureComponent {
 
 	componentDidMount = () => {
 
+		// const { logError } = this.props;
 		// Read the config
-		const headers = new Headers();
-		headers.append("Content-Type", "application/json");
+		// const headers = new Headers();
+		// headers.append("Content-Type", "application/json");
 
-		const requestOptions = {
-			headers: headers,
-			method: 'GET',
-			redirect: 'follow',
-		};
+		// const requestOptions = {
+		// 	headers: headers,
+		// 	method: 'GET',
+		// 	redirect: 'follow',
+		// };
 
-		fetch(`${window.location.origin}/src/Components/Jigsaw/config.json`, requestOptions)
-			.then(handleResponse)
-			.then(res => {
-				this.setState(res);
-			})
-			.catch(error => {
-				const action = `Retrieving configuration`;
-				console.error(action, error);
-			});
+		// fetch(`${window.location.origin}/src/Components/Jigsaw/config.json`, requestOptions)
+		// 	.then(handleResponse)
+		// 	.then(res => {
+		// 		this.setState(res);
+		// 	})
+		// 	.catch(error => {
+		// 		const action = `Retrieving configuration`;
+		// 		logError(action, error);
+		// 	});
 
 		// Deduce the scale in use for this media break
 		const jigsaw = this.jigsawRef.current;
@@ -135,6 +142,7 @@ export class Jigsaw extends React.PureComponent {
 			borderWidth,
 			correctImage,
 			incorrectImage,
+			Pieces,
 			tabSize,
 			tileSize,
 		} = this.state;
@@ -143,23 +151,22 @@ export class Jigsaw extends React.PureComponent {
 		const targetTrayX = parseInt(window.getComputedStyle(targetTray).left);
 		const targetTrayY = parseInt(window.getComputedStyle(targetTray).top);
 
-		const { Pieces } = this.state;
-
 		const newPieces = new Array;
 		for (let i = 0; i < 40; i++) {
-			let piece = Pieces[i];
+			const piece = Pieces[i];
 			const { index, correctSet, correctx, correcty, x, y } = piece.props;
 			if (i < 20) {
 				let targetX, targetY;
 				if (correctSet) {
-					targetX = (correctx * (tileSize - tabSize * 2) - tabSize) + targetTrayX + borderWidth; //-targetTrayX;
-					targetY = (correcty * (tileSize - tabSize * 2) - tabSize) + targetTrayY + borderWidth; //-targetTrayY;
+					targetX = (correctx * (tileSize - tabSize * 2) - tabSize) + targetTrayX + borderWidth;
+					targetY = (correcty * (tileSize - tabSize * 2) - tabSize) + targetTrayY + borderWidth;
 				} else {
 					targetX = x;
 					targetY = y;
 				}
 				newPieces.push(<Piece
 					index={index}
+					className={'placed'}
 					correctImage={correctImage}
 					correctSet={correctSet}
 					handleMouseDown={() => { }}
@@ -184,18 +191,18 @@ export class Jigsaw extends React.PureComponent {
 					correcty={correcty}
 					x={x}
 					y={y}
-					key={`Piece${index}`} />)
+					key={`Piece${index}`} />);
 			}
 		}
 		this.setState({
 			Pieces: newPieces,
-		})
-	}
+		});
+	};
 
 	handleHints = (e) => {
 		// console.log("handleHints", e);
-		this.setState({showHints: e.target.checked})
-	}
+		this.setState({showHints: e.target.checked});
+	};
 
 	handleMouseDown = (e) => {
 		// console.log("handleMouseDown", e)
@@ -228,13 +235,13 @@ export class Jigsaw extends React.PureComponent {
 			if (relMouseY - this.startY > 100 && !this.movingPiece.classList.contains("correct-set")) {
 				this.movingPiece.classList.add('wrong-set');
 			} else {
-				this.movingPiece.classList.remove('wrong-set')
+				this.movingPiece.classList.remove('wrong-set');
 			}
 
 			if (this.inLimits())
-				this.movingPiece.classList.add('highlight')
+				this.movingPiece.classList.add('highlight');
 			else
-				this.movingPiece.classList.remove('highlight')
+				this.movingPiece.classList.remove('highlight');
 		}
 	};
 
@@ -242,11 +249,11 @@ export class Jigsaw extends React.PureComponent {
 		// console.log("handleMouseUp", e)
 		e.target.classList.remove("dragging");
 		const targetTray = this.targetRef.current;
-		let tadaAudio = new Audio(tada);
-		let clickAudio = new Audio(click);
-		let errorAudio = new Audio(error);
+		const tadaAudio = new Audio(tada);
+		const clickAudio = new Audio(click);
+		const errorAudio = new Audio(error);
 		let {
-			failCount=0,
+			failCount = 0,
 		} = this.state;
 
 		// Check valid spot and valid set of tiles
@@ -258,7 +265,7 @@ export class Jigsaw extends React.PureComponent {
 			failCount++;
 			this.setState({
 				failCount: failCount
-			})
+			});
 		} else if (this.movingPiece != undefined) {
 			// Check to see if it is close enough to its intended position
 			const {
@@ -275,8 +282,8 @@ export class Jigsaw extends React.PureComponent {
 			const correcty = parseInt(this.movingPiece.getAttribute('correcty'));
 			const targetTrayX = parseInt(window.getComputedStyle(targetTray).left);
 			const targetTrayY = parseInt(window.getComputedStyle(targetTray).top);
-			const targetX = (correctx * (tileSize - tabSize * 2) - tabSize); //-targetTrayX;
-			const targetY = (correcty * (tileSize - tabSize * 2) - tabSize); //-targetTrayY;
+			const targetX = (correctx * (tileSize - tabSize * 2) - tabSize);
+			const targetY = (correcty * (tileSize - tabSize * 2) - tabSize);
 
 			if (this.inLimits()) {
 				// The eagle has landed
@@ -290,7 +297,7 @@ export class Jigsaw extends React.PureComponent {
 					// Last piece of the jigsaw placed
 					// this.congratulationsRef.current.classList.add("show");
 					const { showDialog } = this.props;
-					showDialog(congratulationsText)
+					showDialog(congratulationsText);
 					tadaAudio.play();
 				}
 				this.setState({ nPlaced: nPlaced });
@@ -302,13 +309,13 @@ export class Jigsaw extends React.PureComponent {
 				failCount++;
 				this.setState({
 					failCount: failCount
-				})
+				});
 				errorAudio.play();
 			}
 		}
 		if (this.movingPiece) {
 			this.movingPiece.classList.remove('highlight');
-			this.movingPiece.classList.remove('wrong-set')
+			this.movingPiece.classList.remove('wrong-set');
 		}
 		this.movingPiece = undefined;
 	};
@@ -335,32 +342,40 @@ export class Jigsaw extends React.PureComponent {
 			return true;
 		}
 		return false;
-	}
+	};
 
 	render = () => {
 		const {
 			cheatText,
 			descriptionText,
 			failCount,
+			id = '',
 			instructionsText,
 			listenDescriptionText,
 			Pieces,
 			showHints = false,
 			showHintsText,
+			soundFile,
 		} = this.state;
 
 		return (
 			<div
 				className='jigsaw-container'
+				id={`${id ? id : ''}`}
+				onTouchStart={this.handleMouseDown}
+				onTouchMove={this.handleMouseMove}
+				onTouchEnd={this.handleMouseEnd}
 				onMouseDown={this.handleMouseDown}
 				onMouseMove={this.handleMouseMove}
 				onMouseUp={this.handleMouseUp}
 			>
 				<p>{instructionsText}</p>
 				<p className='clue'>{descriptionText}&nbsp;</p>
-			
 
-				<label className='audio-clip'>{listenDescriptionText}:&nbsp;<audio controls src="src/Components/Jigsaw/sounds/description.mp3"></audio></label>
+				<AudioClip
+					listenText={listenDescriptionText}
+					soundFile={soundFile}
+				/>
 
 				<div className='help'>
 					<label className={`hidden-help ${failCount >= 2 ? 'show' : ''}`}>{showHintsText}: <input type='checkbox' onChange={this.handleHints} /></label>
@@ -368,6 +383,9 @@ export class Jigsaw extends React.PureComponent {
 				</div>
 				<div
 					className={`jigsaw ${showHints ? 'show-hints' : ''}`}
+					onTouchStart={this.handleMouseDown}
+					onTouchMove={this.handleMouseMove}
+					onTouchEnd={this.handleMouseEnd}
 					onMouseDown={this.handleMouseDown}
 					onMouseMove={this.handleMouseMove}
 					onMouseUp={this.handleMouseUp}
@@ -376,6 +394,9 @@ export class Jigsaw extends React.PureComponent {
 					{Pieces}
 					<div
 						className='target'
+						onTouchStart={this.handleMouseDown}
+						onTouchMove={this.handleMouseMove}
+						onTouchEnd={this.handleMouseEnd}
 						onMouseDown={this.handleMouseDown}
 						onMouseMove={this.handleMouseMove}
 						onMouseUp={this.handleMouseUp}

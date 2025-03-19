@@ -1,0 +1,136 @@
+// Blanks.scss
+
+@use "../../styles/_media-queries.module.scss" as *;
+@use "../../styles/_variables.module.scss" as *;
+
+.blanks-container {
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	// background: rgba(254, 255, 179, 0.6);
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	z-index: 1;
+	margin: auto;
+	max-width: 1200px;
+
+	touch-action: none;
+
+	> .blanks,
+	> .target {
+		display: block;
+		z-index: 1;
+	}
+
+	.blanks {
+		line-height: 1.4em;
+		overflow: visible;
+		min-height: 500px;
+		&.words-container {
+			content: "";
+			background: lightgray;
+			border: ($border-width * 1px) lightgray solid;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.words-container {
+		overflow: visible;
+		background: lightgrey;
+		padding: 2rem 3rem;
+		top: 0;
+		z-index: 20;
+		transition-property: width;
+		transition-duration: 1s;
+		.draggable {
+			cursor: pointer;
+			z-index: 21;
+		}
+	}
+
+	.placeholders {
+		visibility: hidden; // It's just to get dimensions from a flexible/configurable list of content
+		top: 0;
+		background: lightgrey;
+		padding: 2rem 3rem;
+		position: absolute;
+		.word {
+			opacity: 0.5;
+		}
+	}
+
+	p.clue {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+
+	.help {
+		padding: 1rem;
+		display: flex;
+		justify-content: space-evenly;
+		width: 600px;
+	}
+
+	.hidden-help {
+		opacity: 0;
+		transition: opacity 4s;
+		&.show {
+			opacity: 1;
+			transition: opacity 4s;
+		}
+	}
+
+	.audio-clip {
+		display: flex;
+		align-items: center;
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	.target {
+		background: lightgray;
+		border: ($border-width * 1px) rgb(238, 238, 238) ridge;
+		padding: 1rem 2rem;
+		margin-top: 1rem;
+		font-size: 1.2rem;
+		font-weight: bold;
+		ul {
+			list-style: none;
+			padding-left: 0;
+			li {
+				inset: 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				.word {
+					position: relative;
+				}
+				label {
+					font-weight: normal;
+					display: inline-flex;
+					margin-left: 3rem;
+				}
+			}
+		}
+		.word {
+			&.blank {
+				opacity: 0; //.2;
+			}
+		}
+	}
+	&.complete {
+		.audio-clip {
+			opacity: 1;
+			transition: opacity 1s;
+		}
+	}
+}

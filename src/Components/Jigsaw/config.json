@@ -1,6 +1,6 @@
 {
-	"correctImage": "incorrect.jpg",
-	"incorrectImage": "correct.jpg",
+	"correctImageZZZ": "incorrect.jpg",
+	"incorrectImageZZZ": "correct.jpg",
 	"congratulationsText": "Well done! You solved the puzzle!",
 	"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
 	"descriptionText": "Foreign language description of picture with nouns, verbs and lots of adjectives. Something like 'Un jeune homme, portant un t-shirt rouge, passe à vélo devant un cheval dans un champ par une journée ensoleillée.'",

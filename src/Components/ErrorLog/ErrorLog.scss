@@ -1,0 +1,143 @@
+/*
+ErrorLog.scss
+*/
+@import "../../styles/_variables.module.scss";
+// @import "../../styles/_colours.module.scss";
+
+$border-width: 2px;
+$button-dimension: 30px;
+$header-height: $button-dimension;
+$header-colour: #6d6d6d;
+$height: 156px;
+$transition-speed: 0.5s;
+$error-log-width: 700px;
+#errorLog {
+	display: block;
+	position: fixed;
+	max-height: $height;
+	width: $error-log-width;
+	right: 0;
+	top: -$height - 4px;
+	background: white;
+	overflow-y: hidden;
+	z-index: 999;
+	box-shadow: 0 0 4px gray;
+	max-width: $error-log-width;
+	transition:
+		top $transition-speed / 2,
+		max-height $transition-speed,
+		max-width $transition-speed,
+		left $transition-speed,
+		margin-left $transition-speed;
+	overflow-x: hidden;
+	#tableContainer {
+		overflow-y: auto;
+		max-height: $height - $button-dimension;
+		transition: height 2s;
+	}
+	&.show {
+		top: 0;
+		transition:
+			top $transition-speed / 2,
+			max-height $transition-speed,
+			max-width $transition-speed,
+			left $transition-speed,
+			margin-left $transition-speed;
+	}
+	&.collapse {
+		max-height: $header-height;
+		transition:
+			max-height $transition-speed,
+			max-width $transition-speed,
+			left $transition-speed,
+			margin-left $transition-speed;
+		max-width: 140px;
+		header {
+			.header-buttons-left {
+				button {
+					&#collapse {
+						transition: transform $transition-speed / 2;
+						transform: rotateZ(180deg);
+					}
+				}
+			}
+			.header-buttons-right {
+				display: none;
+			}
+		}
+	}
+
+	button {
+		width: $button-dimension;
+		height: $button-dimension;
+		border: none;
+		padding: 0;
+		mask-repeat: no-repeat;
+		mask-position: center center;
+		text-indent: -9999px;
+		&.clear-error {
+			background: rgb(218, 0, 0);
+			mask-size: 40%;
+			mask-image: URL("../../images/whiteCross.svg");
+		}
+	}
+
+	header {
+		width: 100%;
+		text-align: center;
+		padding: 8px;
+		font-weight: bold;
+		font-size: 0.8rem;
+		background-color: #d3d3d3;
+		color: $header-colour;
+		overflow: hidden;
+		.header-buttons-left,
+		.header-buttons-right {
+			position: absolute;
+			display: flex;
+			top: 0;
+			right: 0;
+			overflow: hidden;
+			button {
+				background: $header-colour;
+				&#copyAll {
+					mask-size: 40%;
+					mask-image: URL("../../images/copy.svg");
+				}
+			}
+		}
+		.header-buttons-left {
+			position: absolute;
+			display: flex;
+			top: 0;
+			left: 0;
+			button {
+				&#collapse {
+					transition: transform $transition-speed / 2;
+					mask-size: 60%;
+					mask-image: URL("../../images/upArrow.svg");
+				}
+			}
+		}
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.8rem;
+		tr {
+			background-color: white; // rgba(255, 0, 0, 0.05);
+			&:nth-of-type(even) {
+				background-color: rgba(255, 0, 0, 0.04);
+			}
+		}
+		td {
+			vertical-align: top;
+			padding: 8px;
+			&.button {
+				width: 30px;
+				padding: 0;
+			}
+		}
+	}
+}
