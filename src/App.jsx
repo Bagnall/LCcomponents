@@ -1,12 +1,15 @@
 // import { useState } from 'react'
 import './App.scss';
 import {
+	Accordion,
+	AccordionArticle,
 	Blanks,
 	Congratulate,
 	ErrorLog,
 	Footer,
 	Header,
 	Jigsaw,
+	PhraseTable,
 } from './Components';
 import {
 	handleResponse,
@@ -18,7 +21,8 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = ({
-			dialogContent:'',
+			dialogContent: '',
+			errors: [],
 			showDialog: false,
 		});
 	}
@@ -138,8 +142,10 @@ export default class App extends React.Component {
 			phrases1,
 			phrases2,
 			phrases3,
+			phraseTable1,
 			refreshErrorLog,
 			showDialog = false,
+			wordsIntoSlots1,
 		} = this.state;
 
 		return (
@@ -159,54 +165,94 @@ export default class App extends React.Component {
 						content={dialogContent}
 					/>
 					<div className="content">
-						<h1>Fill in the blanks</h1>
+						{/* <Accordion> */}
+						{wordsIntoSlots1 ? (
+							<>
+								<Blanks
+									config={wordsIntoSlots1}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
+
+						) : null}
+						{phraseTable1 ? (
+							<>
+								{/* / <AccordionArticle
+								// 	id={`fieldSettings`}
+								// 	title={`Field Settings`}
+								// */}
+								<h1>Dialogues</h1>
+								<PhraseTable
+									config={phraseTable1}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+								{/* </AccordionArticle> */}
+							</>
+						) : null}
 						{phrases1 ? (
-							<Blanks
-								config={phrases1}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
+							<>
+								<h1>Fill in the blanks</h1>
+								<Blanks
+									config={phrases1}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
 						) : null}
-						<h1>Fill in the blanks</h1>
+
 						{phrases2 ? (
-							<Blanks
-								config={phrases2}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
+							<>
+								<h1>Fill in the blanks</h1>
+								<Blanks
+									config={phrases2}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
 						) : null}
-						<h1>Complete the Jigsaw</h1>
 						{jigsaw1 ? (
-							<Jigsaw
-								config={jigsaw1}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
+							<>
+								<h1>Complete the Jigsaw</h1>
+								<Jigsaw
+									config={jigsaw1}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
 						) : null}
-						<h1>Complete the Jigsaw</h1>
 						{jigsaw2 ? (
-							<Jigsaw
-								config={jigsaw2}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
+							<>
+								<h1>Complete the Jigsaw</h1>
+								<Jigsaw
+									config={jigsaw2}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
 						) : null}
-						<h1>Complete the Jigsaw</h1>
 						{jigsaw3 ? (
-							<Jigsaw
-								config={jigsaw3}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
+							<>
+								<h1>Complete the Jigsaw</h1>
+								<Jigsaw
+									config={jigsaw3}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
 						) : null}
-						<h1>Fill in the blanks</h1>
 						{phrases3 ? (
-							<Blanks
-								config={phrases3}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
+							<>
+								<h1>Fill in the blanks</h1>
+								<Blanks
+									config={phrases3}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
 						) : null}
+						{/* </Accordion> */}
 					</div>
 					<Footer />
 				</div>

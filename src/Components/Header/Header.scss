@@ -3,7 +3,7 @@
 @use "../../styles/_mixins.module.scss" as *;
 @use "../../styles/_media-queries.module.scss" as *;
 
-header {
+header.main-header {
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -11,7 +11,7 @@ header {
 	@include header-footer-background;
 	margin: 0;
 	color: white;
-
+	line-height: 3rem;
 	text-align: center;
 
 	h1 {

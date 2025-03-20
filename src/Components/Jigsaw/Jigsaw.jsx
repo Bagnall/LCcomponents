@@ -1,12 +1,12 @@
 import './Jigsaw.scss';
 import {
-	arrayIncludesObject,
-	handleResponse,
-} from '../../utility';
-import {
 	AudioClip,
 	Piece,
 } from '../../Components';
+import {
+	arrayIncludesObject,
+	// handleResponse,
+} from '../../utility';
 import click from '../../sounds/click.mp3';
 import error from '../../sounds/error.mp3';
 import {
@@ -257,7 +257,7 @@ export class Jigsaw extends React.PureComponent {
 		} = this.state;
 
 		// Check valid spot and valid set of tiles
-		if (this.movingPiece != undefined && !this.movingPiece.classList.contains('correct-set')) {
+		if (this.movingPiece !== undefined && !this.movingPiece.classList.contains('correct-set')) {
 			// Not from the correct set of pieces
 			errorAudio.play();
 			this.movingPiece.style.left = `${this.startX}px`;
@@ -266,7 +266,7 @@ export class Jigsaw extends React.PureComponent {
 			this.setState({
 				failCount: failCount
 			});
-		} else if (this.movingPiece != undefined) {
+		} else if (this.movingPiece !== undefined) {
 			// Check to see if it is close enough to its intended position
 			const {
 				borderWidth,
@@ -360,7 +360,7 @@ export class Jigsaw extends React.PureComponent {
 
 		return (
 			<div
-				className='jigsaw-container'
+				className='jigsaw-container container'
 				id={`${id ? id : ''}`}
 				onTouchStart={this.handleMouseDown}
 				onTouchMove={this.handleMouseMove}
@@ -369,7 +369,7 @@ export class Jigsaw extends React.PureComponent {
 				onMouseMove={this.handleMouseMove}
 				onMouseUp={this.handleMouseUp}
 			>
-				<p>{instructionsText}</p>
+				<p className={`instructions`}>{instructionsText}</p>
 				<p className='clue'>{descriptionText}&nbsp;</p>
 
 				<AudioClip

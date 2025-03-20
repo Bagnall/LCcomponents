@@ -1,8 +1,7 @@
 /*
 ErrorLog.scss
 */
-@import "../../styles/_variables.module.scss";
-// @import "../../styles/_colours.module.scss";
+@use "../../styles/_variables.module.scss";
 
 $border-width: 2px;
 $button-dimension: 30px;

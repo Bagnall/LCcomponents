@@ -1,4 +1,104 @@
 {
+	"phraseTable1": {
+		"id": "dialogues",
+		"phrases": [
+			[
+				"Salut, ça va ?",
+				"Hi, are you well?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Salut ! Ça va ! Et toi ?",
+				"Hi, I’m fine and you?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Très bien, merci !",
+				"Very well, thank you!",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				""
+			],
+			[
+				"Bonjour, Madame Foucher ! Comment ça va ?",
+				"Hello, Mme Foucher! How are you?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bonjour Monsieur Letort ! Ça va très bien. Et vous* ?",
+				"Hello M Letort, I’m very well, thank you. And you?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Ça va, merci !",
+				"I’m fine, thank you!",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				""
+			],
+			[
+				"Comment t’appelles-tu* ?",
+				"What’s your name?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Je m’appelle Max et toi* ?",
+				"My name is Max. And you’re….?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Je m’appelle Camille.",
+				"My name’s Camille.",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				""
+			],
+			[
+				"Comment vous* appelez-vous ?",
+				"What’s your name?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Je m’appelle Isabelle Martin.",
+				"My name is Isabelle Martin.",
+				"/src/sounds/phrase1.mp3"
+			]
+		]
+	},
+	"wordsIntoSlots1": {
+		"id": "wordsIntoSlots1",
+		"congratulationsText": "Well done!",
+		"instructionsText": "You will hear words containing on / om or oi or h as described in the pronunciation section. Drop each word into the boxes below as you hear it.",
+		"listenDescriptionText": "Speech",
+		"showHintsText": "Show hints when moving",
+		"cheatText": "Cheat",
+		"blanksType": "table",
+		"words": [
+			"moi",
+			"roi",
+			"homme",
+			"hôtel",
+			"hôpital",
+			"bonjour",
+			"bonbon",
+			"au revoir",
+			"mon",
+			"trois",
+			"horrible",
+			"toi",
+			"quoi",
+			"froid",
+			"ton",
+			"non",
+			"bon",
+			"son",
+			"nom"
+		],
+		"soundFile": "/src/sounds/phrase1.mp3"
+	},
 	"phrases1": {
 		"id": "phrases1",
 		"congratulationsText": "Well done!",

@@ -3,15 +3,31 @@
 @use "./styles/_media-queries.module.scss" as *;
 @use "./styles/_mixins.module.scss" as *;
 
-* {
-	line-height: 1.4em;
-}
-
 .app {
 	box-sizing: border-box;
 	line-height: 1.4em;
 	margin: 0;
 	overflow: hidden;
+}
+
+.container {
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	z-index: 1;
+	margin: 1rem auto;
+	max-width: 1200px;
+	touch-action: none;
+
+	overflow: visible;
+	// background: lightgrey;
+	padding: 2rem 3rem;
+	.instructions {
+		text-align: center;
+	}
 }
 
 body {

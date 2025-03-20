@@ -1,0 +1,60 @@
+/*
+_colours.module.scss
+*/
+$text-colour: #212529;
+
+$button-grey: #ececec;
+
+$disabled-background: #ececec;
+$button-disabled: $disabled-background;
+$disabled-foreground: gray;
+
+$button-border-colour: #adadad;
+$button-highlight-colour: cyan;
+
+$nav-tab-background-colour: white;
+$nav-tab-border-colour: #adadad;
+
+$cerella-orange: #fbc57b;
+$cerella-home-colour: $cerella-orange;
+$cerella-button-colour: $cerella-home-colour;
+$cerella-active-colour: $cerella-orange;
+$cerella-cyan: #399bb9;
+$cerella-user-colour: $cerella-cyan;
+$cerella-green: #8dc56d;
+$cerella-group-colour: $cerella-green;
+$cerella-mauve: #6b627f;
+$cerella-policy-colour: $cerella-mauve;
+$cerella-yellow: #f7f5cc;
+$cerella-data-source-colour: $cerella-yellow;
+$cerella-datasource-colour: $cerella-yellow;
+$cerella-data-source-colour-dark: darken($cerella-yellow, 12);
+$cerella-datasource-colour-dark: darken($cerella-yellow, 12);
+$cerella-row-hover-colour: lightcyan;
+
+// Ed's colour choices:
+$idea-tracker-home-colour: #9cbef2; // #9ce8f2;
+$idea-tracker-button-colour: #ed7102;
+$idea-tracker-user-colour: #9cbef2; //#4d7bc4;
+$idea-tracker-active-colour: #fbc57b; //#f59ef5;
+$idea-tracker-group-colour: #9cbef2; //#9cf2d1;
+$idea-tracker-compound-colour: #9cbef2; //#128044; //#128056;
+$idea-tracker-policy-colour: #c1d5f3;
+$idea-tracker-datasource-colour: #9cbef2; //rgb(231, 219, 255); // rgb(214, 193, 255);
+$idea-tracker-row-hover-colour: #e0edff;
+
+$article-base-background: $cerella-orange;
+
+$attention-green: #4fcb2e;
+$amber: #fc9725;
+$attention-red: #e72929;
+
+:export {
+	textColour: $text-colour; /* stylelint-disable-line */
+	cerellaHomeColour: $cerella-home-colour; /* stylelint-disable-line */
+	cerellaUserColour: $cerella-user-colour; /* stylelint-disable-line */
+	cerellaGroupColour: $cerella-group-colour; /* stylelint-disable-line */
+	cerellaPolicyColour: $cerella-policy-colour; /* stylelint-disable-line */
+	cerellaDataSourceColourDark: $cerella-data-source-colour-dark; /* stylelint-disable-line */
+	ideaTrackerHomeColour: $idea-tracker-home-colour; /* stylelint-disable-line */
+}

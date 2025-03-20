@@ -1,3 +1,4 @@
+export * from './Accordion';
 export * from './AudioClip';
 export * from './Blanks';
 export * from './Blanks/Word';
@@ -5,5 +6,7 @@ export * from './Congratulate';
 export * from './ErrorLog';
 export * from './Footer';
 export * from './Header';
+export * from './Info';
 export * from './Jigsaw';
 export * from './Jigsaw/Piece';
+export * from './PhraseTable';

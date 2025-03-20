@@ -24,13 +24,6 @@ export class Blanks extends React.PureComponent {
 
 		super(props);
 
-		// Import some variables from scss (they are also used in other scss files and so should never get out of step unlike duplicated variables).
-		let {
-			borderWidth,
-		} = Variables;
-		// They are all strings so let's fix that
-		borderWidth = parseInt(borderWidth);
-
 		// Grab some items from the DOM
 		this.congratulationsRef = React.createRef();
 		this.placeholdersRef = React.createRef();
@@ -39,22 +32,17 @@ export class Blanks extends React.PureComponent {
 		const { words } = config;
 		const wordTiles = new Array;
 		for (let i = 0; i < words.length; i++) {
-			wordTiles.push(<Word
-				className={`blank draggable`}
-				index={i}
-				wordText={words[i]}
-				key={`words${i}`}
-			/>);
-			// PlaceholderTiles.push(<Word
-			// 	className={`placeholder blank`}
-			// 	index={i}
-			// 	wordText={words[i]}
-			// 	key={`words${i}`} />);
+			wordTiles.push(
+				<Word
+					className={`blank draggable`}
+					index={i}
+					// wordText={words[i]}
+					key={`words${i}`}>{words[i]}</Word>
+			);
 		}
 
 		this.state = ({
 			...config,
-			borderWidth: borderWidth,
 			margin: 20,
 			wordTiles: wordTiles,
 		});
@@ -77,7 +65,6 @@ export class Blanks extends React.PureComponent {
 			const { index } = wordTile.props;
 
 			const targetTile = document.querySelector(`#${id} .word${index}.target`);
-			// console.log(`targetTile`, targetTile);
 
 			const style = window.getComputedStyle(targetTile);
 			let { marginLeft, marginTop } = style;
@@ -86,13 +73,15 @@ export class Blanks extends React.PureComponent {
 			const targetX = parseInt(targetTile.offsetLeft - marginLeft);
 			const targetY = parseInt(targetTile.offsetTop - marginTop);
 
-			newWordTiles.push(<Word
-				className={`blank placed`}
-				index={index}
-				wordText={words[i]}
-				x={targetX}
-				y={targetY}
-				key={`Word${index}`} />);
+			newWordTiles.push(
+				<Word
+					className={`blank placed`}
+					index={index}
+					// wordText={words[i]}
+					x={targetX}
+					y={targetY}
+					key={`Word${index}`} >{words[i]}</Word>
+			);
 
 		}
 		this.setState({
@@ -121,18 +110,15 @@ export class Blanks extends React.PureComponent {
 
 			// Fix container size
 			const { width, height } = window.getComputedStyle(this.wordsContainerRef.current);
-			// console.log("width", width, "height", height);
 			this.wordsContainerRef.current.style.width = width;
 			this.wordsContainerRef.current.style.height = height;
 
 			// draggable words (relatively positioned)
 			const draggables = document.querySelectorAll(`#${id} .draggable`);
-			// console.log("draggables", draggables, `#${id} .draggable`);
 			const coords = new Array;
 			for (let i = 0; i < draggables.length; i++) {
 				const draggable = draggables[i];
 				const style = window.getComputedStyle(draggable);
-				// console.log(draggable);
 				coords.push({
 					x: `${draggable.offsetLeft - parseInt(style.paddingLeft)}px`,
 					y: `${draggable.offsetTop - parseInt(style.marginTop)}px`
@@ -150,18 +136,16 @@ export class Blanks extends React.PureComponent {
 			this.movingPiece = e.target;
 			const cl = this.movingPiece.classList;
 
-			// console.log(`#${id} .placeholder.${cl[0]}`);
 			const startWord = document.querySelector(`#${id} .draggable.${cl[0]}`);
-
 
 			if (startWord) {
 
 				const swStyles = window.getComputedStyle(startWord);
+
 				// Starting point in case we want to return it
 				this.startX = parseInt(startWord.offsetLeft) - parseInt(swStyles.marginLeft);
 				this.startY = parseInt(startWord.offsetTop) - parseInt(swStyles.marginTop);
 
-				// console.log("wcLeft", wcLeft, "wcTop", wcTop, "startX", this.startX, "startY", this.startY);
 				// Start the drag with a friendly offset
 				let { height, marginLeft, marginTop, paddingLeft, paddingTop, width } = window.getComputedStyle(this.movingPiece);
 				height = parseInt(height);
@@ -199,12 +183,11 @@ export class Blanks extends React.PureComponent {
 			relMouseY -= height / 2 + marginTop + paddingTop;
 
 			// Drag via centre of word (not top left)
-			// console.log("relMouseX",relMouseX,"relMouseY",relMouseY)
 			if (relMouseX && relMouseY) {
 				this.movingPiece.style.left = `${relMouseX}px`;
 				this.movingPiece.style.top = `${relMouseY}px`;
 
-				if (this.inLimits())
+				if (this.inLimits().success)
 					this.movingPiece.classList.add('highlight');
 				else
 					this.movingPiece.classList.remove('highlight');
@@ -225,12 +208,7 @@ export class Blanks extends React.PureComponent {
 		// Check valid spot and valid set of tiles
 		if (this.movingPiece) {
 			this.movingPiece.classList.remove("dragging");
-			// this.movingPiece.classList.remove("draggable");
-			// this.movingPiece.classList.add("dragged");
-			// console.log("Removed dragging");
-			// this.movingPiece.classList.remove('highlight');
-			// this.movingPiece.classList.remove('dragging');
-			// Check to see if it is close enough to its intended position
+
 			const {
 				congratulationsText,
 				words,
@@ -240,7 +218,9 @@ export class Blanks extends React.PureComponent {
 			} = this.state;
 
 			let targetX, targetY;
-			if ({ targetX, targetY } = this.inLimits()) {
+			const inLimitsResult = this.inLimits();
+			if (inLimitsResult.success){
+				({ targetX, targetY } = inLimitsResult);
 				// The eagle has landed
 				this.movingPiece.classList.remove("draggable");
 				this.movingPiece.classList.remove('highlight');
@@ -253,7 +233,6 @@ export class Blanks extends React.PureComponent {
 				if (nPlaced === words.length) {
 
 					// Last piece of the jigsaw placed
-					// this.congratulationsRef.current.classList.add("show");
 					const { showDialog } = this.props;
 					showDialog(congratulationsText);
 					tadaAudio.play();
@@ -269,7 +248,7 @@ export class Blanks extends React.PureComponent {
 				// Nowhere near!
 				this.movingPiece.style.left = `${this.startX}px`;
 				this.movingPiece.style.top = `${this.startY}px`;
-				// console.log("Set left & top");
+
 				failCount++;
 				this.setState({
 					failCount: failCount
@@ -289,16 +268,9 @@ export class Blanks extends React.PureComponent {
 		} = this.state;
 
 		const cl = this.movingPiece.classList;
-		// let targetWord = document.getElementsByClassName(`target ${cl[0]}`);
 		const targetWord = document.querySelector(`#${id} .target.${cl[0]}`);
-		// console.log(`target ${cl[0]}`)
 		let targetX, targetY;
 		if (targetWord) {
-			// console.log("targetWord")
-			// targetWord = targetWord[0];
-			// To find out target point
-			// console.log(targetWord);
-
 			// targeting point in case we want to return it
 			const style = window.getComputedStyle(targetWord);
 			let { marginLeft, marginTop } = style;
@@ -308,71 +280,108 @@ export class Blanks extends React.PureComponent {
 			targetY = parseInt(targetWord.offsetTop - marginTop);
 		}
 
-		// console.log("targetX", targetX, "targetY", targetY);
 		let { left, top } = this.movingPiece.style;
 		left = parseInt(left);
 		top = parseInt(top);
-		// console.log("left",left,"top",top,"margin",margin)
 		if (Math.abs(left - targetX) < margin && Math.abs(top - targetY) < margin) {
-			// console.log("inLimits");
-			return {"targetX":targetX, "targetY":targetY};
+			return {
+				success: true,
+				"targetX": targetX,
+				"targetY": targetY,
+			};
 		}
-		return false;
+		return {success: false};
 	};
 
 	render = () => {
 		const {
 			audio,
+			blanksType = 'phrases',
 			complete = false,
 			cheatText,
 			failCount,
 			id = '',
 			instructionsText,
+			listenDescriptionText,
 			showHints = false,
 			showHintsText,
 			phrases = [],
+			soundFile,
 			words = [],
 			wordTiles,
 		} = this.state;
 
 		const phraseList = new Array;
+		const tableRows = new Array;
 
-		const reg = /\]| /;
-		for (let i = 0; i < phrases.length; i++) {
-			const phraseSplit = phrases[i].split(reg);
-			const phrase = new Array;
-			for (let j = 0; j < phraseSplit.length; j++) {
-				if (phraseSplit[j][0] === '[') {
+		if (blanksType === 'phrases') {
+			const reg = /\]| /;
+			for (let i = 0; i < phrases.length; i++) {
+				const phraseSplit = phrases[i].split(reg);
+				const phrase = new Array;
+				for (let j = 0; j < phraseSplit.length; j++) {
+					if (phraseSplit[j][0] === '[') {
 					// span it as a target!
 					// word${index} must be the first class
-					const cleanedPhraseSplit = phraseSplit[j].replace('[', '').replace(']', '');
+						const cleanedPhraseSplit = phraseSplit[j].replace('[', '').replace(']', '');
 
-					// Find the corresponding placeholder to determine its correct index
-					let foundIndex;
-					for (let i = 0; i < words.length; i++) {
-						if (words[i] === cleanedPhraseSplit) foundIndex = i;
+						// Find the corresponding placeholder to determine its correct index
+						let foundIndex;
+						for (let i = 0; i < words.length; i++) {
+							if (words[i] === cleanedPhraseSplit) foundIndex = i;
+						}
+						phrase.push(<span
+							className={`word${foundIndex} word blank target `}
+							key={`phraseSpan${i}-${j}`}>{cleanedPhraseSplit} </span>);
 					}
-					phrase.push(<span
-						className={`word${foundIndex} word blank target `}
-						key={`phraseSpan${i}-${j}`}>{cleanedPhraseSplit} </span>);
+					else {
+						phrase.push(<span className='word' key={`phraseSpan${i}-${j}`}>{phraseSplit[j]} </span>);
+					}
 				}
-				else {
-					phrase.push(<span className='word' key={`phraseSpan${i}-${j}`}>{phraseSplit[j]} </span>);
-				}
+
+				const soundFile = `src/sounds/${audio[i]}`;
+
+				phraseList.push(
+					<li key={`phrase${i}`}><div className='phrase'>{phrase}</div> <AudioClip
+						listenText={`Hear the phrase`}
+						soundFile={soundFile}
+					/></li>
+				);
 			}
-			// console.log("phrases", audio)
-			const soundFile = `src/Components/Blanks/sounds/${audio[i]}`;
-			phraseList.push(
-				<li key={`phrase${i}`}><div className='phrase'>{phrase}</div> <AudioClip
-					listenText={`Hear the phrase`}
-					soundFile={soundFile}
-				/></li>
-			);
+		} else {
+			const nRows = parseInt(words.length / 2) + words.length % 2;
+			// console.log("nRows", nRows);
+			for (let i = 1; i <= nRows;i++)
+				tableRows.push(
+					<tr key={`${id}row${i}`}>
+						<td>{i}.</td>
+						<td>
+							<Word
+								className={`blank target`}
+								index={i - 1}
+								key={`${id}word{$i}`}>{words[i - 1]}</Word>
+						</td>
+						{i < words.length / 2 ?
+							<>
+								<td>{i + nRows}.</td>
+								<td>
+									<Word
+										className={`blank target`}
+										index={i - 1 + nRows}
+										key={`${id}word{$i + nRows}`}>{words[i - 1 + nRows]}</Word>
+								</td>
+							</>
+							:
+							null
+						}
+					</tr>
+				);
 		}
-		// console.log("id", id);
+		console.log("listenDescriptionText", listenDescriptionText, "soundFile", soundFile);
+
 		return (
 			<div
-				className={`blanks-container ${complete ? 'complete' : ''}`}
+				className={`blanks-container type-${blanksType} container ${complete ? 'complete' : ''}`}
 				id={`${id ? id : ''}`}
 				onMouseDown={this.handleMouseDown}
 				onMouseMove={this.handleMouseMove}
@@ -381,7 +390,16 @@ export class Blanks extends React.PureComponent {
 				onTouchMove={this.handleMouseMove}
 				onTouchEnd={this.handleMouseUp}
 			>
-				<p>{instructionsText}</p>
+				<p className={`instructions`}>{instructionsText}</p>
+
+				{listenDescriptionText && soundFile ?
+					<AudioClip
+						listenText={listenDescriptionText}
+						soundFile={soundFile}
+					/>
+					:
+					null
+				}
 
 				<div className='help'>
 					<label className={`hidden-help ${failCount >= 2 ? 'show' : ''}`}>{showHintsText}: <input type='checkbox' onChange={this.handleHints} /></label>
@@ -396,7 +414,6 @@ export class Blanks extends React.PureComponent {
 					onTouchMove={this.handleMouseMove}
 					onTouchEnd={this.handleMouseUp}
 				>
-					{/* <div className={`placeholders`} ref={this.placeholdersRef}>{PlaceholderTiles}</div> */}
 					<div className={`words-container`} ref={this.wordsContainerRef}>
 						{wordTiles}
 					</div>
@@ -409,9 +426,16 @@ export class Blanks extends React.PureComponent {
 						onTouchMove={this.handleMouseMove}
 						onTouchEnd={this.handleMouseUp}
 					>
-						<ul>
-							{phraseList}
-						</ul>
+						{blanksType === 'phrases' ?
+							<ul>
+								{phraseList}
+							</ul> :
+							<table>
+								<tbody>
+									{tableRows}
+								</tbody>
+							</table>
+						}
 					</div>
 				</div>
 			</div>

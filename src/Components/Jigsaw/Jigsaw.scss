@@ -4,17 +4,17 @@
 @use "../../styles/_variables.module.scss" as *;
 
 .jigsaw-container {
-	position: relative;
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: column;
-	z-index: 1;
-	margin: auto;
-	max-width: 1200px;
+	// position: relative;
+	// display: flex;
+	// flex-wrap: nowrap;
+	// justify-content: flex-start;
+	// align-items: center;
+	// flex-direction: column;
+	// z-index: 1;
+	// margin: auto;
+	// max-width: 1200px;
 
-	touch-action: none;
+	// touch-action: none;
 
 	.jigsaw,
 	.target {

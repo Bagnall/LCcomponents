@@ -33,6 +33,7 @@
 	width: fit-content;
 	min-width: 80vw;
 	height: fit-content;
+	line-height: 160px;
 	margin: auto 10%;
 	text-align: center;
 	background: white;
@@ -46,6 +47,7 @@
 	transition-duration: 1s;
 	border-radius: 20px;
 	background-color: white;
+	min-height: 22vh;
 	&.show {
 		justify-content: center;
 		align-items: center;

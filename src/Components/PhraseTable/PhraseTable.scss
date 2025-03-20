@@ -1,0 +1,40 @@
+// Blanks.scss
+
+@use "../../styles/_media-queries.module.scss" as *;
+@use "../../styles/_variables.module.scss" as *;
+
+.phrases-table-container {
+	background: lightgrey;
+
+	table {
+		text-align: left;
+		border-collapse: collapse;
+		background: white;
+		td,
+		th {
+			border: 1px solid #000000;
+			padding: 5px 4px;
+			font-weight: bold;
+		}
+		tbody {
+			border: none;
+			tr {
+				&.spacer {
+					// td {
+					background: lightgray;
+					border-left: none;
+					border-right: none;
+					// }
+					td {
+						border-left: none;
+						border-right: none;
+					}
+				}
+			}
+		}
+		td {
+			font-size: 1rem;
+			padding: 0.25rem 1rem;
+		}
+	}
+}

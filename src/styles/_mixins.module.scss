@@ -1,8 +1,138 @@
 /*
-_mixins.scss
+_mixins.module.scss
 */
 
 @mixin header-footer-background {
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#00087c+0,0003d3+51,00087c+100 */
 	background: linear-gradient(to right, #00087c 0%, #0003d3 51%, #00087c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+@function contrast($n) {
+	$color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
+	$light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+
+	@if abs($color-brightness) < ($light-color/2) {
+		@return white;
+	} @else {
+		@return black;
+	}
+}
+
+@mixin threeSixtyRotate {
+	@keyframes threeSixtyRotate {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}
+
+@mixin card {
+	transition: background-color $colour-transition-time;
+	background-color: $card-colour;
+	border-color: gray;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: $card-border-radius;
+	position: absolute;
+}
+
+@mixin dialog-background {
+	background-color: desaturate(rgba($cerella-orange, 0.6), 80%);
+	margin: 0;
+	position: absolute;
+	// opacity: 0.4;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin active($active-colour: red) {
+	background-color: $active-colour;
+	color: black;
+}
+@mixin user($user_colour: red) {
+	background-color: $user_colour;
+	color: contrast($user_colour);
+}
+@mixin group($group_colour: red) {
+	background-color: $group_colour;
+	color: contrast($group_colour);
+}
+@mixin policy($policy-colour: red) {
+	background-color: $policy-colour;
+	color: contrast($policy-colour);
+}
+@mixin data-source($datasource_colour: red) {
+	background-color: $datasource_colour;
+	color: contrast($datasource_colour);
+}
+@mixin compound-editor($compound_colour: red) {
+	background-color: $compound_colour;
+	color: contrast($compound_colour);
+}
+@mixin home($home_colour: red) {
+	background-color: $home_colour;
+	color: contrast($home_colour);
+}
+@mixin form-field-common() {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 0.2fr;
+	grid-auto-rows: min-content;
+}
+@mixin form-field-common-font-padding() {
+	font-size: 16px;
+	padding: 8px 4px;
+}
+@mixin button-common() {
+	padding: 10px 20px;
+	font-weight: bold;
+	border: none;
+	border-radius: $button-border-radius;
+	height: $button-height;
+	outline: none;
+}
+
+@mixin disabled {
+	cursor: not-allowed;
+	background-color: lightgrey;
+	color: grey;
+}
+
+@mixin button {
+	padding: 10px 20px;
+	font-weight: bold;
+	border: none;
+	border-radius: $button-border-radius;
+	height: $button-height;
+	outline: none;
+	&.disabled {
+		@include disabled;
+	}
+}
+
+@mixin sortable-tree-tick {
+	border-style: solid;
+	border-width: 2px;
+	width: 0;
+	height: 0;
+	padding: 0;
+	border-radius: 50%;
+	background: white;
+	text-indent: -9999px;
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		mask-image: URL("../../images/true.svg");
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: 60%;
+	}
 }

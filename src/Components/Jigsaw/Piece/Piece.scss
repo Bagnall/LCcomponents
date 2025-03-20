@@ -2,6 +2,7 @@
 
 @use "../../../styles/_mixins.module.scss" as *;
 @use "../../../styles/_variables.module.scss" as *;
+@use "sass:math";
 
 .show-hints {
 	.piece {
@@ -95,7 +96,7 @@
 	}
 	@for $x from 0 through 39 {
 		&:nth-of-type(#{$x}) {
-			$random-number: random(30)-15;
+			$random-number: math.random(30)-15;
 			transform: rotate($random-number * 1deg);
 		}
 	}
@@ -114,6 +115,7 @@
 				// 	color: red;
 				// }
 			}
+			// @debug "x #{$x}, y #{$y}";
 			&:nth-of-type(#{$x + $y * 5 + 21}) {
 				left: Calc(($x + 5) * $tile-size * 1px);
 				top: Calc($y * $tile-size * 1px);

@@ -4,17 +4,6 @@
 @use "../../styles/_variables.module.scss" as *;
 
 .blanks-container {
-	position: relative;
-	display: flex;
-	flex-wrap: nowrap;
-	// background: rgba(254, 255, 179, 0.6);
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: column;
-	z-index: 1;
-	margin: auto;
-	max-width: 1200px;
-
 	touch-action: none;
 
 	> .blanks,
@@ -27,14 +16,6 @@
 		line-height: 1.4em;
 		overflow: visible;
 		min-height: 500px;
-		&.words-container {
-			content: "";
-			background: lightgray;
-			border: ($border-width * 1px) lightgray solid;
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
 		box-sizing: border-box;
 		display: flex;
 		flex-wrap: nowrap;
@@ -51,6 +32,7 @@
 		z-index: 20;
 		transition-property: width;
 		transition-duration: 1s;
+		line-height: 3.5rem;
 		.draggable {
 			cursor: pointer;
 			z-index: 21;
@@ -92,8 +74,13 @@
 	.audio-clip {
 		display: flex;
 		align-items: center;
-		opacity: 0;
-		transition: opacity 1s;
+	}
+
+	&.type-table {
+		.dragging,
+		.placed {
+			margin: 4px;
+		}
 	}
 
 	.target {
@@ -103,6 +90,12 @@
 		margin-top: 1rem;
 		font-size: 1.2rem;
 		font-weight: bold;
+
+		.audio-clip {
+			opacity: 0;
+			transition: opacity 1s;
+		}
+
 		ul {
 			list-style: none;
 			padding-left: 0;
@@ -123,7 +116,37 @@
 		}
 		.word {
 			&.blank {
-				opacity: 0; //.2;
+				opacity: 0;
+			}
+		}
+		table {
+			text-align: left;
+			border-collapse: collapse;
+			td,
+			th {
+				font-size: 1rem;
+				border: 1px solid #000000;
+				padding: 0 4px;
+				font-weight: bold;
+				text-align: center;
+				background: white;
+				span {
+					margin: 4px;
+				}
+			}
+			tbody {
+				border: none;
+				tr {
+					&.spacer {
+						background: lightgray;
+						border-left: none;
+						border-right: none;
+						td {
+							border-left: none;
+							border-right: none;
+						}
+					}
+				}
 			}
 		}
 	}

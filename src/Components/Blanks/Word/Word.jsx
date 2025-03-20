@@ -6,12 +6,12 @@ export class Word extends React.PureComponent {
 	render = () => {
 
 		const {
+			children,
 			className,
 			handleMouseDown,
 			handleMouseMove,
 			handleMouseUp,
 			index,
-			wordText,
 			x,
 			y,
 		} = this.props;
@@ -31,7 +31,7 @@ export class Word extends React.PureComponent {
 				onTouchMove={handleMouseMove}
 				onTouchEnd={handleMouseUp}
 				style={styles}
-			>{wordText}</span>
+			>{children}</span>
 		);
 	};
 }
