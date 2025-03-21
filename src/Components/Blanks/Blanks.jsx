@@ -9,11 +9,12 @@ import {
 	mouseRelativeTo,
 } from '../../mouseUtility';
 import React from 'react';
+import {
+	// 	handleResponse,
+	shuffleArray
+} from '../../utility';
 import tada from '../../sounds/tada.mp3';
 import Variables from '../../styles/_variables.module.scss';
-// import {
-// 	handleResponse,
-// } from '../../utility';
 
 export class Blanks extends React.PureComponent {
 
@@ -29,21 +30,52 @@ export class Blanks extends React.PureComponent {
 		this.placeholdersRef = React.createRef();
 		this.wordsContainerRef = React.createRef();
 		const { config } = props;
-		const { words } = config;
+		const { answers, questions, blanksType, words } = config;
 		const wordTiles = new Array;
-		for (let i = 0; i < words.length; i++) {
-			wordTiles.push(
-				<Word
-					className={`blank draggable`}
-					index={i}
-					// wordText={words[i]}
-					key={`words${i}`}>{words[i]}</Word>
-			);
+		let nToPlace = 0;
+		switch (blanksType) {
+			case 'phrases':
+			case 'table':
+				nToPlace = words.length;
+				for (let i = 0; i < nToPlace; i++) {
+					wordTiles.push(
+						<Word
+							className={`blank draggable`}
+							index={i}
+							// wordText={words[i]}
+							key={`words${i}`}>{words[i]}</Word>
+					);
+				}
+				break;
+			case "questions-answers": {
+				let mixer = new Array;
+				nToPlace = questions.length;
+
+				for (let i = 0; i < nToPlace; i++){
+					mixer.push([i, answers[i]]);
+				}
+				// Now randomise
+				mixer = shuffleArray(mixer);
+				for (let i = 0; i < nToPlace; i++) {
+					wordTiles.push(
+						<Word
+							className={`blank draggable`}
+							index={mixer[i][0]}
+							key={`words${mixer[i][0]}`}>{mixer[i][1]}</Word>
+					);
+				}
+
+				break;
+			}
+			// default: {
+
+			// }
 		}
 
 		this.state = ({
 			...config,
 			margin: 20,
+			nToPlace: nToPlace,
 			wordTiles: wordTiles,
 		});
 	}
@@ -53,6 +85,8 @@ export class Blanks extends React.PureComponent {
 		// User has had enough, solve it
 		// console.log("autoSolve");
 		const {
+			answers,
+			blanksType,
 			id,
 			wordTiles,
 			words,
@@ -80,7 +114,7 @@ export class Blanks extends React.PureComponent {
 					// wordText={words[i]}
 					x={targetX}
 					y={targetY}
-					key={`Word${index}`} >{words[i]}</Word>
+					key={`Word${index}`} >{blanksType === 'questions-answers' ? answers[i] : words[i]}</Word>
 			);
 
 		}
@@ -91,7 +125,7 @@ export class Blanks extends React.PureComponent {
 
 	handleHints = (e) => {
 		// console.log("handleHints", e);
-		this.setState({showHints: e.target.checked});
+		this.setState({ showHints: e.target.checked });
 	};
 
 	handleMouseDown = (e) => {
@@ -124,7 +158,7 @@ export class Blanks extends React.PureComponent {
 					y: `${draggable.offsetTop - parseInt(style.marginTop)}px`
 				});
 			}
-			for (let i = 0; i < draggables.length; i++){
+			for (let i = 0; i < draggables.length; i++) {
 				const draggable = draggables[i];
 				draggable.style.left = coords[i].x;
 				draggable.style.top = coords[i].y;
@@ -211,6 +245,8 @@ export class Blanks extends React.PureComponent {
 
 			const {
 				congratulationsText,
+				nToPlace,
+				questions,
 				words,
 			} = this.state;
 			let {
@@ -219,7 +255,7 @@ export class Blanks extends React.PureComponent {
 
 			let targetX, targetY;
 			const inLimitsResult = this.inLimits();
-			if (inLimitsResult.success){
+			if (inLimitsResult.success) {
 				({ targetX, targetY } = inLimitsResult);
 				// The eagle has landed
 				this.movingPiece.classList.remove("draggable");
@@ -230,7 +266,7 @@ export class Blanks extends React.PureComponent {
 				this.movingPiece.style.top = `${targetY}px`;
 				this.movingPiece.classList.add("placed");
 				nPlaced++;
-				if (nPlaced === words.length) {
+				if (nPlaced === nToPlace){
 
 					// Last piece of the jigsaw placed
 					const { showDialog } = this.props;
@@ -290,11 +326,12 @@ export class Blanks extends React.PureComponent {
 				"targetY": targetY,
 			};
 		}
-		return {success: false};
+		return { success: false };
 	};
 
 	render = () => {
 		const {
+			answers,
 			audio,
 			blanksType = 'phrases',
 			complete = false,
@@ -306,7 +343,9 @@ export class Blanks extends React.PureComponent {
 			showHints = false,
 			showHintsText,
 			phrases = [],
+			questions,
 			soundFile,
+			soundFiles,
 			words = [],
 			wordTiles,
 		} = this.state;
@@ -314,70 +353,116 @@ export class Blanks extends React.PureComponent {
 		const phraseList = new Array;
 		const tableRows = new Array;
 
-		if (blanksType === 'phrases') {
-			const reg = /\]| /;
-			for (let i = 0; i < phrases.length; i++) {
-				const phraseSplit = phrases[i].split(reg);
-				const phrase = new Array;
-				for (let j = 0; j < phraseSplit.length; j++) {
-					if (phraseSplit[j][0] === '[') {
-					// span it as a target!
-					// word${index} must be the first class
-						const cleanedPhraseSplit = phraseSplit[j].replace('[', '').replace(']', '');
+		// phrases, table or questions/answers?
+		switch (blanksType) {
+			case 'phrases': {
+				const reg = /\]| /;
+				for (let i = 0; i < phrases.length; i++) {
+					const phraseSplit = phrases[i].split(reg);
+					const phrase = new Array;
+					for (let j = 0; j < phraseSplit.length; j++) {
+						if (phraseSplit[j][0] === '[') {
+							// span it as a target!
+							// word${index} must be the first class
+							const cleanedPhraseSplit = phraseSplit[j].replace('[', '').replace(']', '');
 
-						// Find the corresponding placeholder to determine its correct index
-						let foundIndex;
-						for (let i = 0; i < words.length; i++) {
-							if (words[i] === cleanedPhraseSplit) foundIndex = i;
+							// Find the corresponding placeholder to determine its correct index
+							let foundIndex;
+							for (let i = 0; i < words.length; i++) {
+								if (words[i] === cleanedPhraseSplit) foundIndex = i;
+							}
+							phrase.push(<span
+								className={`word${foundIndex} word blank target `}
+								key={`phraseSpan${i}-${j}`}>{cleanedPhraseSplit} </span>);
 						}
-						phrase.push(<span
-							className={`word${foundIndex} word blank target `}
-							key={`phraseSpan${i}-${j}`}>{cleanedPhraseSplit} </span>);
+						else {
+							phrase.push(<span className='word' key={`phraseSpan${i}-${j}`}>{phraseSplit[j]} </span>);
+						}
 					}
-					else {
-						phrase.push(<span className='word' key={`phraseSpan${i}-${j}`}>{phraseSplit[j]} </span>);
-					}
+
+					const soundFile = `src/sounds/${audio[i]}`;
+
+					phraseList.push(
+						<li key={`phrase${i}`}><div className='phrase'>{phrase}</div> <AudioClip
+							listenText={`Hear the phrase`}
+							soundFile={soundFile}
+						/></li>
+					);
 				}
-
-				const soundFile = `src/sounds/${audio[i]}`;
-
-				phraseList.push(
-					<li key={`phrase${i}`}><div className='phrase'>{phrase}</div> <AudioClip
-						listenText={`Hear the phrase`}
-						soundFile={soundFile}
-					/></li>
-				);
+				break;
 			}
-		} else {
-			const nRows = parseInt(words.length / 2) + words.length % 2;
-			// console.log("nRows", nRows);
-			for (let i = 1; i <= nRows;i++)
-				tableRows.push(
-					<tr key={`${id}row${i}`}>
-						<td>{i}.</td>
-						<td>
-							<Word
-								className={`blank target`}
-								index={i - 1}
-								key={`${id}word{$i}`}>{words[i - 1]}</Word>
-						</td>
-						{i < words.length / 2 ?
-							<>
-								<td>{i + nRows}.</td>
-								<td>
-									<Word
-										className={`blank target`}
-										index={i - 1 + nRows}
-										key={`${id}word{$i + nRows}`}>{words[i - 1 + nRows]}</Word>
-								</td>
-							</>
-							:
-							null
-						}
-					</tr>
-				);
+			case "table": {
+				const nRows = parseInt(words.length / 2) + words.length % 2;
+				for (let i = 1; i <= nRows; i++)
+					tableRows.push(
+						<tr key={`${id}row${i}`}>
+							<td>{i}.</td>
+							<td>
+								<Word
+									className={`blank target`}
+									index={i - 1}
+									key={`${id}word{$i}`}>{words[i - 1]}</Word>
+							</td>
+							{i < words.length / 2 ?
+								<>
+									<td>{i + nRows}.</td>
+									<td>
+										<Word
+											className={`blank target`}
+											index={i - 1 + nRows}
+											key={`${id}word{$i + nRows}`}>{words[i - 1 + nRows]}</Word>
+									</td>
+								</>
+								:
+								null
+							}
+						</tr>
+					);
+				break;
+			}
+			case "questions-answers": {
+				for (let i = 1; i <= questions.length; i++)
+					tableRows.push(
+						<tr key={`${id}row${i}`}>
+							<td>
+								{/* <Word
+									className={`blank`}
+									index={i - 1}
+									key={`${id}question{$i}`}>{questions[i - 1]}</Word> */}
+								{questions[i - 1]}
+							</td>
+							<td>
+								<Word
+									className={`blank target`}
+									index={i - 1}
+									key={`${id}answers{$i}`}>{answers[i - 1]}</Word>
+							</td>
+							<td>
+								<AudioClip
+									soundFile={soundFiles[i - 1]}
+								/>
+							</td>
+							{i < words.length / 2 ?
+								<>
+									<td>{i + nRows}.</td>
+									<td>
+										<Word
+											className={`blank target`}
+											index={i - 1 + nRows}
+											key={`${id}word{$i + nRows}`}>{words[i - 1 + nRows]}</Word>
+									</td>
+								</>
+								:
+								null
+							}
+						</tr>
+					);
+				break;
+			}
+			default: {
+				logError(action, error);
+			}
 		}
-		console.log("listenDescriptionText", listenDescriptionText, "soundFile", soundFile);
 
 		return (
 			<div

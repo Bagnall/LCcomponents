@@ -1,0 +1,104 @@
+// Blanks.scss
+
+@use "../../styles/_media-queries.module.scss" as *;
+@use "../../styles/_variables.module.scss" as *;
+
+html.debug {
+	.word-parts-container {
+		span {
+			border: 1px solid rgba(255, 0, 0, 0.2);
+		}
+	}
+}
+
+.word-parts-container {
+	background: lightgrey;
+	table {
+		p {
+			margin: 0;
+			letter-spacing: 0.5rem;
+		}
+	}
+
+	span {
+		&.animate {
+			animation-name: vertical-rotate;
+			animation-duration: 0.5s;
+			animation-timing-function: linear;
+			animation-iteration-count: 8;
+			background-color: rgba(0, 255, 255, 0.2);
+			border: 1px solid cyan;
+			box-sizing: border-box;
+		}
+		padding: 0.5rem 0;
+		font-size: 2rem;
+		cursor: pointer;
+		display: inline-block;
+		border: 1px solid white;
+		user-select: none;
+		&.error {
+			border: 1px solid red;
+			background: rgba(255, 0, 0, 0.2);
+		}
+	}
+
+	@keyframes vertical-rotate {
+		0% {
+			transform: rotateX(0deg);
+		}
+		100% {
+			transform: rotateX(360deg);
+		}
+	}
+	p.clue {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+
+	.help {
+		padding: 1rem;
+		// display: flex;
+		// justify-content: space-evenly;
+		// width: 600px;
+	}
+
+	.hidden-help {
+		opacity: 0;
+		transition: opacity 4s;
+		&.show {
+			opacity: 1;
+			transition: opacity 4s;
+		}
+	}
+	table {
+		text-align: left;
+		border-collapse: collapse;
+		background: white;
+		td,
+		th {
+			border: 1px solid #000000;
+			padding: 5px 4px;
+			font-weight: bold;
+		}
+		tbody {
+			border: none;
+			tr {
+				&.spacer {
+					// td {
+					background: lightgray;
+					border-left: none;
+					border-right: none;
+					// }
+					td {
+						border-left: none;
+						border-right: none;
+					}
+				}
+			}
+		}
+		td {
+			font-size: 1rem;
+			padding: 0.25rem 1rem;
+		}
+	}
+}

@@ -10,3 +10,4 @@ export * from './Info';
 export * from './Jigsaw';
 export * from './Jigsaw/Piece';
 export * from './PhraseTable';
+export * from './WordParts';

@@ -68,6 +68,331 @@
 			]
 		]
 	},
+	"vocabulary1": {
+		"id": "vocabulary1",
+		"phrases": [
+			[
+				"Bonjour",
+				"hello, good morning, good afternoon",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bonsoir",
+				"hello, good evening",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Coucou",
+				"hi, cooee, peek-a-boo",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Salut",
+				"hi, bye",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Au revoir",
+				"goodbye",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"A bientôt",
+				"See you soon!",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Monsieur",
+				"sir, Mr",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Madame*",
+				"madam, Mrs / Ms",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Mademoiselle",
+				"young lady, Miss",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Messieurs-dames",
+				"ladies and gentlemen",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"jeune homme",
+				"young man",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"mon petit (m) / ma petite(f)",
+				"poppet  (literally: my little one)",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"mon amour",
+				"my love",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"mon chéri (m) / ma chérie (f)",
+				"my darling",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"les enfants",
+				"children",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"tout le monde",
+				"Everyone (literally : all the world)",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Ca va?",
+				"Are you well / OK?  Are things alright/ OK?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Comment ça va?",
+				"How are you? (literally: how’s it going?)",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Très bien",
+				"Very well",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Ca va.",
+				"(I’m) fine",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Pas mal",
+				"Not bad",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Comment t’appelles-tu*?",
+				"What’s your name?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Comment vous appelez-vous*?",
+				"What’s your name?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Je m’appelle …",
+				"My name is …",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bonne journée!",
+				"Have a nice day!",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bonne soirée!",
+				"Have a nice evening!   ",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bonne nuit!",
+				"Good night!",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bon voyage!",
+				"Have a safe journey! / Have a good trip!",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bonnes vacances!",
+				"Enjoy your holiday!",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"oui, non",
+				"Yes, no",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"merci",
+				"thank you",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"d’accord",
+				"OK then, alright",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"aujourd’hui",
+				"today",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"enchanté.e",
+				"Pleased to meet you (literally: delighted)",
+				"/src/sounds/phrase1.mp3"
+			]
+		]
+	},
+	"monologues": {
+		"id": "monologues",
+		"phrases": [
+			[
+				"Salut,  je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.",
+				"Hi, I’m Sylvain. I’m single and I’m a geography student.",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bonjour ! Je m’appelle Jacqueline. Je suis divorcée. Je suis prof de maths.",
+				"Hello, my name’s Jacqueline. I’m divorced. I’m a maths teacher",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Bonsoir! Je m’appelle Olivier Durand. Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
+				"Good evening, my name’s Olivier Durand. I’ve been married to Alex for three years and I’m a librarian.",
+				"/src/sounds/phrase1.mp3"
+			]
+		]
+	},
+	"vocabulary2": {
+		"id": "vocabulary2",
+		"phrases": [
+			[
+				"être*",
+				"to be",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"marié.e",
+				"married",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"divorcé.e",
+				"divorced",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"séparé.e",
+				"separated",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"fiancé.e",
+				"engaged",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"pacsé.e",
+				"In a civil partnership",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"célibataire",
+				"single",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"étudiant / étudiante",
+				"University student",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"élève",
+				"school pupil",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"chercheur(m) / chercheuse(f)",
+				"researcher",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"doctorant / doctorante",
+				"PhD student",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"professeur.e prof (m and f)",
+				"teacher, professeur",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"médecin (m and f)",
+				"doctor",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"archiviste",
+				"archiviste",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"bibliothécaire",
+				"librarian",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"administrateur (m) administratrice(f)",
+				"administrator",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"informaticien.ne",
+				"IT specialist",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"avocat / avocate",
+				"lawyer",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Que faites-vous* (dans la vie)?",
+				"What do you do (for a living)?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Que fais-tu* (dans la vie)?",
+				"What do you do (for a living)?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Quelle est ta / votre profession?",
+				"What’s your profession?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"Quel est ton / votre métier?",
+				"What’s your profession?",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"depuis",
+				"for (a period of time), since",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"malade",
+				"ill",
+				"/src/sounds/phrase1.mp3"
+			],
+			[
+				"hier",
+				"yesterday",
+				"/src/sounds/phrase1.mp3"
+			]
+		]
+	},
 	"wordsIntoSlots1": {
 		"id": "wordsIntoSlots1",
 		"congratulationsText": "Well done!",
@@ -99,12 +424,39 @@
 		],
 		"soundFile": "/src/sounds/phrase1.mp3"
 	},
+	"wordsIntoSlots2": {
+		"id": "wordsIntoSlots2",
+		"congratulationsText": "Well done!",
+		"instructionsText": "Match the questions and answers",
+		"showHintsText": "Show hints when moving",
+		"cheatText": "Cheat",
+		"blanksType": "questions-answers",
+		"questions": [
+			"Salut les enfants! Tout va bien?",
+			"Tu es archiviste?",
+			"Monsieur Tondereau est journaliste?",
+			"Que faites-vous dans la vie?"
+		],
+		"answers": [
+			"Moi, oui, ça va … mais Jo est malade depuis hier.",
+			"Ah non! je suis étudiante en histoire.",
+			"Non, il est bibliothécaire.",
+			"Je suis professeur de géographie."
+		],
+		"soundFiles": [
+			"/src/sounds/phrase1.mp3",
+			"/src/sounds/phrase1.mp3",
+			"/src/sounds/phrase1.mp3",
+			"/src/sounds/phrase1.mp3"
+		]
+	},
 	"phrases1": {
 		"id": "phrases1",
 		"congratulationsText": "Well done!",
 		"instructionsText": "Drag the words to fill in the gaps.",
 		"showHintsText": "Show hints when moving",
 		"cheatText": "Cheat",
+		"blanksType": "phrases",
 		"words": [
 			"mon",
 			"chérie",
@@ -124,11 +476,12 @@
 		]
 	},
 	"phrases2": {
-		"id": "phrases2",
+		"blanksType": "phrases",
+		"cheatText": "Cheat",
 		"congratulationsText": "Superb!",
+		"id": "phrases2",
 		"instructionsText": "Drag the words to fill in the gaps.",
 		"showHintsText": "Show hints when moving",
-		"cheatText": "Cheat",
 		"words": [
 			"comment",
 			"merci",
@@ -145,12 +498,32 @@
 			"phrase6.mp3"
 		]
 	},
+	"wordparts1": {
+		"cheatText": "Cheat",
+		"congratulationsText": "Superb!",
+		"id": "wordparts1",
+		"instructionsText": "Listen to the following phrases. Each phrase contains at least 2 of the following:  on, oi, r, h. Can you identify them? Click on them to reveal them.",
+		"showHintsText": "Show hints when moving",
+		"phrases": [
+			"b[on]jou[r] m[on] ché[r]i",
+			"b[on]s[oi]r m[on] amou[r]",
+			"au rev[oi]r ma ché[r]ie",
+			"quelle [h]o[r][r]eur Valé[r]ie"
+		],
+		"audio": [
+			"bonjourmoncheri.mp3",
+			"bonsoirmonamour.mp3",
+			"aurevoirmacherie.mp3",
+			"quellehorreurvalerie.mp3"
+		]
+	},
 	"phrases3": {
-		"id": "phrases3",
+		"blanksType": "phrases",
+		"cheatText": "Cheat",
 		"congratulationsText": "Very good!",
+		"id": "phrases3",
 		"instructionsText": "Drag the words to fill in the gaps.",
 		"showHintsText": "Show hints when moving",
-		"cheatText": "Cheat",
 		"words": [
 			"enfants",
 			"revoir",

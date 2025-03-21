@@ -76,7 +76,8 @@
 		align-items: center;
 	}
 
-	&.type-table {
+	&.type-table,
+	&.type-questions-answers {
 		.dragging,
 		.placed {
 			margin: 4px;

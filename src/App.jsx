@@ -10,16 +10,20 @@ import {
 	Header,
 	Jigsaw,
 	PhraseTable,
+	WordParts,
 } from './Components';
 import {
 	handleResponse,
 } from './utility';
 import React from 'react';
+import wof from './sounds/wheel-of-fortune.mp3';
 
 export default class App extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.wofAudio = new Audio(wof);
+
 		this.state = ({
 			dialogContent: '',
 			errors: [],
@@ -139,13 +143,18 @@ export default class App extends React.Component {
 			jigsaw1,
 			jigsaw2,
 			jigsaw3,
+			monologues,
 			phrases1,
 			phrases2,
 			phrases3,
 			phraseTable1,
 			refreshErrorLog,
 			showDialog = false,
+			vocabulary1,
+			vocabulary2,
+			wordparts1,
 			wordsIntoSlots1,
+			wordsIntoSlots2,
 		} = this.state;
 
 		return (
@@ -166,6 +175,25 @@ export default class App extends React.Component {
 					/>
 					<div className="content">
 						{/* <Accordion> */}
+						{wordparts1 ? (
+							<>
+								<WordParts
+									config={wordparts1}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
+						) : null}
+						{wordsIntoSlots2 ? (
+							<>
+								<Blanks
+									config={wordsIntoSlots2}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
+
+						) : null}
 						{wordsIntoSlots1 ? (
 							<>
 								<Blanks
@@ -189,6 +217,36 @@ export default class App extends React.Component {
 									showDialog={this.showDialog}
 								/>
 								{/* </AccordionArticle> */}
+							</>
+						) : null}
+						{vocabulary1 ? (
+							<>
+								<h1>Vocabulary</h1>
+								<PhraseTable
+									config={vocabulary1}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
+						) : null}
+						{monologues ? (
+							<>
+								<h1>Monologues</h1>
+								<PhraseTable
+									config={monologues}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
+							</>
+						) : null}
+						{vocabulary2 ? (
+							<>
+								<h1>Vocabulary</h1>
+								<PhraseTable
+									config={vocabulary2}
+									logError={this.logError}
+									showDialog={this.showDialog}
+								/>
 							</>
 						) : null}
 						{phrases1 ? (

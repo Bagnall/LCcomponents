@@ -3,6 +3,12 @@
 @use "./styles/_media-queries.module.scss" as *;
 @use "./styles/_mixins.module.scss" as *;
 
+html.debug {
+	.blanks-container .target .word.blank {
+		opacity: 0.2;
+	}
+}
+
 .app {
 	box-sizing: border-box;
 	line-height: 1.4em;

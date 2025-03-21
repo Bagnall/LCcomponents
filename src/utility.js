@@ -54,11 +54,11 @@ export const getCardById = (id, dataSet) => {
 	// Note - card - any card including stacked card or 'stack'
 	const { rows: molecules = [], stacks = [] } = dataSet;
 	const stack = stacks.find(item => {
-		return item.id === ''+id;  
+		return item.id === `${id}`;
 	});
 	if (stack) return stack;
 	const molecule = molecules.find(item => {
-		return item.id === ''+id;  
+		return item.id === `${id}`;
 	});
 	return molecule;
 };
@@ -186,6 +186,22 @@ export const isAlphaNumeric = (str) => { // Within the rules for datasets
 	return true;
 };
 
+export const shuffleArray = (array) => {
+	let currentIndex = array.length;
+
+	// While there remain elements to shuffle...
+	while (currentIndex !== 0) {
+
+		// Pick a remaining element...
+		const randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex--;
+
+		// And swap it with the current element.
+		[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+	}
+	return array;
+};
+
 export const titleCase = (str) => {
 	const splitStr = str.toLowerCase().split(' ');
 	for (let i = 0; i < splitStr.length; i++) {
@@ -198,7 +214,7 @@ export const titleCase = (str) => {
 };
 
 export const uuidv4 = () => {
-	console.trace('uuidv4');
+	// console.trace('uuidv4');
 	return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
 		(c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> c) / 4)).toString(16)
 	);
