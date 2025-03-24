@@ -3,6 +3,7 @@ export * from './AudioClip';
 export * from './Blanks';
 export * from './Blanks/Word';
 export * from './Congratulate';
+export * from './DropDowns';
 export * from './ErrorLog';
 export * from './Footer';
 export * from './Header';

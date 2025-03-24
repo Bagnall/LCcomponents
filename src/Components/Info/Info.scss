@@ -1,9 +1,9 @@
 /*
 Info.scss
 */
-@import "../../styles/_colours.module.scss";
-@import "../../styles/_mixins.module.scss";
-@import "../../styles/_variables.module.scss";
+@use "../../styles/_colours.module.scss";
+@use "../../styles/_mixins.module.scss";
+@use "../../styles/_variables.module.scss";
 
 .pop-over,
 #info {
@@ -17,7 +17,7 @@ Info.scss
 	padding: 4vh 4vw;
 	top: 4vh;
 	left: 4vw;
-	border: 4px solid $cerella-orange;
+	border: 4px solid lightgray;
 	box-shadow: 4px 4px 4px gray;
 	background: white;
 	z-index: 998;
@@ -52,7 +52,7 @@ Info.scss
 	}
 	button {
 		&.window-close {
-			background-color: $cerella-orange;
+			background-color: lightGray;
 			position: absolute;
 			display: block; // To override window-close display: none elsewhere
 			top: 4px;
@@ -73,8 +73,8 @@ Info.scss
 }
 button {
 	&.button-info {
-		@include button-common();
-		background-color: $cerella-orange;
+		// @include button-common;
+		background-color: lightGray;
 		border-radius: 10px;
 		width: 20px;
 		height: 20px;

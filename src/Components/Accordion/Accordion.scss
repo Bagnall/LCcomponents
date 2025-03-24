@@ -9,7 +9,7 @@ $header-height: 40px;
 $header-font-size: 0.7em;
 $spacer: 20px;
 
-$article-base-background: lightgray;
+$article-base-background: rgb(217, 216, 253);
 $cerella-home-colour: yellow;
 $common-left-margin: 20px;
 
@@ -56,7 +56,7 @@ $common-left-margin: 20px;
 @mixin showArticleContent {
 	> .content {
 		transition: all 0.5s ease-in-out;
-		max-height: 900px; // Good for all but system management accordion which now gets set dynamically.
+		max-height: 2240px; //900px; // Good for all but system management accordion which now gets set dynamically.
 		> article {
 			@include showArticle;
 		}
@@ -104,7 +104,7 @@ $common-left-margin: 20px;
 		transition: all 0.5s;
 		mask-image: url("../../images/arrow.svg");
 		background-repeat: no-repeat;
-		// background-color: lighten($article-base-background, 16);
+		background-color: lighten($article-base-background, 16);
 		mask-size: contain;
 		display: inline-block;
 		width: 1em;
@@ -234,7 +234,7 @@ $common-left-margin: 20px;
 	}
 
 	.accordion-article {
-		.content {
+		> .content {
 			overflow: hidden;
 			font-size: 1em;
 			line-height: 1.4em;
@@ -250,7 +250,7 @@ $common-left-margin: 20px;
 				text-indent: 1rem;
 			}
 			p {
-				text-indent: $common-left-margin;
+				// text-indent: $common-left-margin;
 				img.view,
 				img.download {
 					// width: 20px;

@@ -1,21 +1,23 @@
 {
 	"phraseTable1": {
-		"id": "dialogues",
+		"component": "PhraseTable",
+		"id": "DropDowns1",
+		"instructionsText": "Select the correct adjective of nationality.",
 		"phrases": [
 			[
 				"Salut, ça va ?",
 				"Hi, are you well?",
-				"/src/sounds/phrase1.mp3"
+				"salut-ca-va.mp3"
 			],
 			[
 				"Salut ! Ça va ! Et toi ?",
 				"Hi, I’m fine and you?",
-				"/src/sounds/phrase1.mp3"
+				"salut-ca-va-et-toi.mp3"
 			],
 			[
 				"Très bien, merci !",
 				"Very well, thank you!",
-				"/src/sounds/phrase1.mp3"
+				"tres-bien-merci.mp3"
 			],
 			[
 				""
@@ -23,17 +25,17 @@
 			[
 				"Bonjour, Madame Foucher ! Comment ça va ?",
 				"Hello, Mme Foucher! How are you?",
-				"/src/sounds/phrase1.mp3"
+				"bonjour-madamefoucher-comment-ca-va.mp3"
 			],
 			[
 				"Bonjour Monsieur Letort ! Ça va très bien. Et vous* ?",
 				"Hello M Letort, I’m very well, thank you. And you?",
-				"/src/sounds/phrase1.mp3"
+				"bonjour-monsieur-letort-ca-va-tres-bien-et-vous.mp3"
 			],
 			[
 				"Ça va, merci !",
 				"I’m fine, thank you!",
-				"/src/sounds/phrase1.mp3"
+				"ca-va-merci.mp3"
 			],
 			[
 				""
@@ -41,17 +43,17 @@
 			[
 				"Comment t’appelles-tu* ?",
 				"What’s your name?",
-				"/src/sounds/phrase1.mp3"
+				"comment-t-appelles-tu.mp3"
 			],
 			[
-				"Je m’appelle Max et toi* ?",
+				"Je m’appelle Max, et toi* ?",
 				"My name is Max. And you’re….?",
-				"/src/sounds/phrase1.mp3"
+				"je-m-appelle-max-et-toi.mp3"
 			],
 			[
 				"Je m’appelle Camille.",
 				"My name’s Camille.",
-				"/src/sounds/phrase1.mp3"
+				"je-m-appelle-camille.mp3"
 			],
 			[
 				""
@@ -59,337 +61,341 @@
 			[
 				"Comment vous* appelez-vous ?",
 				"What’s your name?",
-				"/src/sounds/phrase1.mp3"
+				"comment-vous-appelez-vous.mp3"
 			],
 			[
 				"Je m’appelle Isabelle Martin.",
 				"My name is Isabelle Martin.",
-				"/src/sounds/phrase1.mp3"
+				"je-m-appelle-isabelle-Martin.mp3"
 			]
-		]
+		],
+		"titleText": "Select the Correct Adjective of Nationality"
 	},
 	"vocabulary1": {
+		"component": "PhraseTable",
 		"id": "vocabulary1",
 		"phrases": [
 			[
 				"Bonjour",
 				"hello, good morning, good afternoon",
-				"/src/sounds/phrase1.mp3"
+				"bonjour.mp3"
 			],
 			[
 				"Bonsoir",
 				"hello, good evening",
-				"/src/sounds/phrase1.mp3"
+				"bonsoir.mp3"
 			],
 			[
 				"Coucou",
 				"hi, cooee, peek-a-boo",
-				"/src/sounds/phrase1.mp3"
+				"coucou.mp3"
 			],
 			[
 				"Salut",
 				"hi, bye",
-				"/src/sounds/phrase1.mp3"
+				"salut.mp3"
 			],
 			[
 				"Au revoir",
 				"goodbye",
-				"/src/sounds/phrase1.mp3"
+				"au-revoir.mp3"
 			],
 			[
 				"A bientôt",
 				"See you soon!",
-				"/src/sounds/phrase1.mp3"
+				"a-bientot.mp3"
 			],
 			[
 				"Monsieur",
 				"sir, Mr",
-				"/src/sounds/phrase1.mp3"
+				"monsieur.mp3"
 			],
 			[
 				"Madame*",
 				"madam, Mrs / Ms",
-				"/src/sounds/phrase1.mp3"
+				"madame.mp3"
 			],
 			[
 				"Mademoiselle",
 				"young lady, Miss",
-				"/src/sounds/phrase1.mp3"
+				"mademoiselle.mp3"
 			],
 			[
 				"Messieurs-dames",
 				"ladies and gentlemen",
-				"/src/sounds/phrase1.mp3"
+				"messieurs-dames.mp3"
 			],
 			[
 				"jeune homme",
 				"young man",
-				"/src/sounds/phrase1.mp3"
+				"jeune-homme.mp3"
 			],
 			[
 				"mon petit (m) / ma petite(f)",
 				"poppet  (literally: my little one)",
-				"/src/sounds/phrase1.mp3"
+				"mon-petit-ma-petit.mp3"
 			],
 			[
 				"mon amour",
 				"my love",
-				"/src/sounds/phrase1.mp3"
+				"mon-amour.mp3"
 			],
 			[
 				"mon chéri (m) / ma chérie (f)",
 				"my darling",
-				"/src/sounds/phrase1.mp3"
+				"mon-cheri-ma-cherie.mp3"
 			],
 			[
 				"les enfants",
 				"children",
-				"/src/sounds/phrase1.mp3"
+				"les-enfants.mp3"
 			],
 			[
 				"tout le monde",
 				"Everyone (literally : all the world)",
-				"/src/sounds/phrase1.mp3"
+				"tout-le-monde.mp3"
 			],
 			[
-				"Ca va?",
+				"Ca va ?",
 				"Are you well / OK?  Are things alright/ OK?",
-				"/src/sounds/phrase1.mp3"
+				"ca-va-qm.mp3"
 			],
 			[
-				"Comment ça va?",
+				"Comment ça va ?",
 				"How are you? (literally: how’s it going?)",
-				"/src/sounds/phrase1.mp3"
+				"comment-ca-va.mp3"
 			],
 			[
 				"Très bien",
 				"Very well",
-				"/src/sounds/phrase1.mp3"
+				"tres-bien.mp3"
 			],
 			[
 				"Ca va.",
 				"(I’m) fine",
-				"/src/sounds/phrase1.mp3"
+				"ca-va.mp3"
 			],
 			[
 				"Pas mal",
 				"Not bad",
-				"/src/sounds/phrase1.mp3"
+				"pas-mal.mp3"
 			],
 			[
-				"Comment t’appelles-tu*?",
+				"Comment t’appelles-tu* ?",
 				"What’s your name?",
-				"/src/sounds/phrase1.mp3"
+				"comment-t-appelles-tu.mp3"
 			],
 			[
-				"Comment vous appelez-vous*?",
+				"Comment vous appelez-vous* ?",
 				"What’s your name?",
-				"/src/sounds/phrase1.mp3"
+				"comment-vous-appelez-vous.mp3"
 			],
 			[
 				"Je m’appelle …",
 				"My name is …",
-				"/src/sounds/phrase1.mp3"
+				"je-m-appelle.mp3"
 			],
 			[
-				"Bonne journée!",
+				"Bonne journée !",
 				"Have a nice day!",
-				"/src/sounds/phrase1.mp3"
+				"bonne-journee.mp3"
 			],
 			[
-				"Bonne soirée!",
+				"Bonne soirée !",
 				"Have a nice evening!   ",
-				"/src/sounds/phrase1.mp3"
+				"bonne-soiree.mp3"
 			],
 			[
-				"Bonne nuit!",
+				"Bonne nuit !",
 				"Good night!",
-				"/src/sounds/phrase1.mp3"
+				"bonne-nuit.mp3"
 			],
 			[
-				"Bon voyage!",
+				"Bon voyage !",
 				"Have a safe journey! / Have a good trip!",
-				"/src/sounds/phrase1.mp3"
+				"bon-voyage.mp3"
 			],
 			[
-				"Bonnes vacances!",
+				"Bonnes vacances !",
 				"Enjoy your holiday!",
-				"/src/sounds/phrase1.mp3"
+				"bonnes-vacances.mp3"
 			],
 			[
 				"oui, non",
 				"Yes, no",
-				"/src/sounds/phrase1.mp3"
+				"oui-non.mp3"
 			],
 			[
 				"merci",
 				"thank you",
-				"/src/sounds/phrase1.mp3"
+				"merci.mp3"
 			],
 			[
 				"d’accord",
 				"OK then, alright",
-				"/src/sounds/phrase1.mp3"
+				"d-accord.mp3"
 			],
 			[
 				"aujourd’hui",
 				"today",
-				"/src/sounds/phrase1.mp3"
+				"aujourd-hui.mp3"
 			],
 			[
 				"enchanté.e",
 				"Pleased to meet you (literally: delighted)",
-				"/src/sounds/phrase1.mp3"
+				"enchante.mp3"
 			]
 		]
 	},
 	"monologues": {
+		"component": "PhraseTable",
 		"id": "monologues",
 		"phrases": [
 			[
 				"Salut,  je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.",
 				"Hi, I’m Sylvain. I’m single and I’m a geography student.",
-				"/src/sounds/phrase1.mp3"
+				"salut-je-suis-sylvain-je-suis-celibataire-je-suis-etudiant-en-geographie.mp3"
 			],
 			[
 				"Bonjour ! Je m’appelle Jacqueline. Je suis divorcée. Je suis prof de maths.",
 				"Hello, my name’s Jacqueline. I’m divorced. I’m a maths teacher",
-				"/src/sounds/phrase1.mp3"
+				"bonjour-je-m-appelle-jacqueline-je-suis-divorcee-je-suis-prof-de-maths.mp3"
 			],
 			[
-				"Bonsoir! Je m’appelle Olivier Durand. Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
+				"Bonsoir ! Je m’appelle Olivier Durand. Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
 				"Good evening, my name’s Olivier Durand. I’ve been married to Alex for three years and I’m a librarian.",
-				"/src/sounds/phrase1.mp3"
+				"bonsoir-je-m-appelle-olivier-durand-je-suis-marie-avec-alex-depuis-trois-ans-et-je-suis-bibliothecaire.mp3"
 			]
 		]
 	},
 	"vocabulary2": {
+		"component": "PhraseTable",
 		"id": "vocabulary2",
 		"phrases": [
 			[
 				"être*",
 				"to be",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"marié.e",
 				"married",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"divorcé.e",
 				"divorced",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"séparé.e",
 				"separated",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"fiancé.e",
 				"engaged",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"pacsé.e",
 				"In a civil partnership",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"célibataire",
 				"single",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"étudiant / étudiante",
 				"University student",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"élève",
 				"school pupil",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"chercheur(m) / chercheuse(f)",
 				"researcher",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"doctorant / doctorante",
 				"PhD student",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"professeur.e prof (m and f)",
 				"teacher, professeur",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"médecin (m and f)",
 				"doctor",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"archiviste",
 				"archiviste",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"bibliothécaire",
 				"librarian",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"administrateur (m) administratrice(f)",
 				"administrator",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"informaticien.ne",
 				"IT specialist",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"avocat / avocate",
 				"lawyer",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
-				"Que faites-vous* (dans la vie)?",
+				"Que faites-vous* (dans la vie) ?",
 				"What do you do (for a living)?",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
-				"Que fais-tu* (dans la vie)?",
+				"Que fais-tu* (dans la vie) ?",
 				"What do you do (for a living)?",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
-				"Quelle est ta / votre profession?",
+				"Quelle est ta / votre profession ?",
 				"What’s your profession?",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
-				"Quel est ton / votre métier?",
+				"Quel est ton / votre métier ?",
 				"What’s your profession?",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"depuis",
 				"for (a period of time), since",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"malade",
 				"ill",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			],
 			[
 				"hier",
 				"yesterday",
-				"/src/sounds/phrase1.mp3"
+				"phrase1.mp3"
 			]
 		]
 	},
@@ -422,35 +428,62 @@
 			"son",
 			"nom"
 		],
-		"soundFile": "/src/sounds/phrase1.mp3"
+		"soundFile": "phrase1.mp3"
 	},
 	"wordsIntoSlots2": {
-		"id": "wordsIntoSlots2",
+		"component": "Blanks",
 		"congratulationsText": "Well done!",
+		"id": "wordsIntoSlots2",
 		"instructionsText": "Match the questions and answers",
 		"showHintsText": "Show hints when moving",
 		"cheatText": "Cheat",
 		"blanksType": "questions-answers",
 		"questions": [
-			"Salut les enfants! Tout va bien?",
-			"Tu es archiviste?",
-			"Monsieur Tondereau est journaliste?",
-			"Que faites-vous dans la vie?"
+			"Salut les enfants ! Tout va bien ?",
+			"Tu es archiviste ?",
+			"Monsieur Tondereau est journaliste ?",
+			"Que faites-vous dans la vie ?"
 		],
 		"answers": [
 			"Moi, oui, ça va … mais Jo est malade depuis hier.",
-			"Ah non! je suis étudiante en histoire.",
+			"Ah non ! je suis étudiante en histoire.",
 			"Non, il est bibliothécaire.",
 			"Je suis professeur de géographie."
 		],
 		"soundFiles": [
-			"/src/sounds/phrase1.mp3",
-			"/src/sounds/phrase1.mp3",
-			"/src/sounds/phrase1.mp3",
-			"/src/sounds/phrase1.mp3"
+			"salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-jo-est-malade-depuis-hier.mp3",
+			"tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3",
+			"phrase1.mp3",
+			"phrase1.mp3"
+		]
+	},
+	"dropdowns1": {
+		"component": "DropDowns",
+		"id": "dropdowns1",
+		"congratulationsText": "Well done!",
+		"instructionsText": "Select the correct adjective of nationality.",
+		"showHintsText": "Show hints when moving",
+		"cheatText": "Cheat",
+		"phrases": [
+			"Female : Je suis [marocain|*marocaine|africain|africaine].",
+			"Female : Je suis [américain|américaine|mexicain|*mexicaine].",
+			"Male : Je suis [*canadien|canadienne|ghanéen|ghanéenne].",
+			"Female: Je suis [français|*française|anglais /anglaise].",
+			"Male: Je suis [*chinois|chinoise|gallois|galloise].",
+			"Female : Je suis [anglais|anglaise|sénégalais|*sénégalaise]."
+		],
+		"commented-out": "test [a|*b|c|d|e] and [*a|b|c|d].",
+		"audio": [
+			"je-suis-marocaine.mp3",
+			"je-suis-mexicaine.mp3",
+			"je-suis-canadien.mp3",
+			"je-suis-francaise.mp3",
+			"je-suis-chinois.mp3",
+			"je-suis-senegalaise.mp3"
 		]
 	},
 	"phrases1": {
+		"component": "Blanks",
 		"id": "phrases1",
 		"congratulationsText": "Well done!",
 		"instructionsText": "Drag the words to fill in the gaps.",
@@ -465,9 +498,9 @@
 			"très"
 		],
 		"phrases": [
-			"Coucou [mon] amour ! Ca [va] aujourd’hui?",
-			"Oui, ma [chérie] ! Ça va [très] bien ! Et [toi]?",
-			"Ça va!"
+			"Coucou [mon] amour ! Ca [va] aujourd’hui ?",
+			"Oui, ma [chérie] ! Ça va [très] bien ! Et [toi] ?",
+			"Ça va !"
 		],
 		"audio": [
 			"phrase1.mp3",
@@ -476,6 +509,7 @@
 		]
 	},
 	"phrases2": {
+		"component": "Blanks",
 		"blanksType": "phrases",
 		"cheatText": "Cheat",
 		"congratulationsText": "Superb!",
@@ -488,9 +522,9 @@
 			"vous"
 		],
 		"phrases": [
-			"Bonsoir Monsieur Galipot! [comment] ça va?",
-			"Bonsoir Monsieur Bernard, ça va très bien, merci. Et [vous]?",
-			"Ah pas mal [merci]!"
+			"Bonsoir Monsieur Galipot ! [comment] ça va ?",
+			"Bonsoir Monsieur Bernard, ça va très bien, merci. Et [vous] ?",
+			"Ah pas mal [merci] !"
 		],
 		"audio": [
 			"phrase4.mp3",
@@ -500,6 +534,7 @@
 	},
 	"wordparts1": {
 		"cheatText": "Cheat",
+		"component": "WordParts",
 		"congratulationsText": "Superb!",
 		"id": "wordparts1",
 		"instructionsText": "Listen to the following phrases. Each phrase contains at least 2 of the following:  on, oi, r, h. Can you identify them? Click on them to reveal them.",
@@ -520,6 +555,7 @@
 	"phrases3": {
 		"blanksType": "phrases",
 		"cheatText": "Cheat",
+		"component": "Blanks",
 		"congratulationsText": "Very good!",
 		"id": "phrases3",
 		"instructionsText": "Drag the words to fill in the gaps.",
@@ -532,12 +568,12 @@
 			"moi"
 		],
 		"phrases": [
-			"Bonjour les [enfants]. Comment vous [appelez]-vous?",
-			"Bonjour Madame! Je m’ [appelle] Annie.",
+			"Bonjour les [enfants]. Comment vous [appelez]-vous ?",
+			"Bonjour Madame ! Je m’ [appelle] Annie.",
 			"Et [moi], je m’appelle David.",
-			"D’accord. Très bien!",
-			"Merci Madame ! Bonne journée!",
-			"Au [revoir] les enfants!  Bonne journée!"
+			"D’accord. Très bien !",
+			"Merci Madame ! Bonne journée !",
+			"Au [revoir] les enfants !  Bonne journée !"
 		],
 		"audio": [
 			"phrase7.mp3",
@@ -549,6 +585,7 @@
 		]
 	},
 	"jigsaw1": {
+		"component": "Jigsaw",
 		"correctImage": "/src/images/cyclist-horse.jpg",
 		"id": "jigsaw1",
 		"incorrectImage": "/src/images/parrot-jaguar.jpg",
@@ -563,6 +600,7 @@
 		"listenDescriptionText": "Listen to the description"
 	},
 	"jigsaw2": {
+		"component": "Jigsaw",
 		"correctImage": "/src/images/parrot-jaguar.jpg",
 		"id": "jigsaw2",
 		"incorrectImage": "/src/images/cyclist-horse.jpg",
@@ -576,6 +614,7 @@
 		"listenDescriptionText": "Listen to the description"
 	},
 	"jigsaw3": {
+		"component": "Jigsaw",
 		"correctImage": "/src/images/car-windmill.jpg",
 		"id": "jigsaw3",
 		"incorrectImage": "/src/images/car-cliff-lift.jpg",

@@ -29,7 +29,6 @@ html.debug {
 	touch-action: none;
 
 	overflow: visible;
-	// background: lightgrey;
 	padding: 2rem 3rem;
 	.instructions {
 		text-align: center;
@@ -62,10 +61,12 @@ h2 {
 	font-size: 1.6em;
 }
 
-.content {
-	max-width: 100vw;
+#content {
+	width: 100vw;
+	max-width: 1400px;
 	text-align: left;
 	padding: 1rem 2rem 1rem 1rem;
+	margin: auto;
 	ul {
 		margin: 2rem 0;
 	}

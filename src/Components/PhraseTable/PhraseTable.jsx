@@ -19,6 +19,7 @@ export class PhraseTable extends React.PureComponent {
 	render = () => {
 		const {
 			id = [],
+			instructionsText,
 			phrases,
 		} = this.state;
 		// const { id = '' } = config;
@@ -42,9 +43,10 @@ export class PhraseTable extends React.PureComponent {
 					);
 				}
 				if (phrase[2]) {
+					const soundFile = `/src/sounds/${phrase[2]}`;
 					cells.push(
 						<td key={`row${i}cell${3}`}>
-							<AudioClip label={""} soundFile={phrase[2]} />
+							<AudioClip label={""} soundFile={soundFile} />
 						</td>
 					);
 				}
@@ -62,6 +64,7 @@ export class PhraseTable extends React.PureComponent {
 				className={`phrases-table-container container`}
 				id={`${id ? id : ''}`}
 			>
+				<p className={`instructions`}>{instructionsText}</p>
 				<table>
 					<tbody>
 						{rows}

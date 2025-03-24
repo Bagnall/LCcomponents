@@ -5,6 +5,7 @@ import {
 	AccordionArticle,
 	Blanks,
 	Congratulate,
+	DropDowns,
 	ErrorLog,
 	Footer,
 	Header,
@@ -139,6 +140,7 @@ export default class App extends React.Component {
 	render = () => {
 		const {
 			dialogContent,
+			dropdowns1,
 			errors,
 			jigsaw1,
 			jigsaw2,
@@ -173,144 +175,181 @@ export default class App extends React.Component {
 						hideDialog={this.hideDialog}
 						content={dialogContent}
 					/>
-					<div className="content">
-						{/* <Accordion> */}
-						{wordparts1 ? (
-							<>
-								<WordParts
-									config={wordparts1}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{wordsIntoSlots2 ? (
-							<>
-								<Blanks
-									config={wordsIntoSlots2}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
+					<div id="content">
+						<Accordion>
+							{dropdowns1 ? (
+								<AccordionArticle
+									id={`DropDowns1Accordion`}
+									title={`Select the Correct Adjective of Nationality`}
+								>
+									<DropDowns
+										config={dropdowns1}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{wordparts1 ? (
+								<AccordionArticle
+									id={`AccordionWordParts1Accordion`}
+									title={`Select the parts of the words with the described sounds`}
+								>
+									<WordParts
+										config={wordparts1}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{wordsIntoSlots2 ? (
+								<AccordionArticle
+									id={`AccordionWordsIntoSlots2Accordion`}
+									title={`Match the Answers to the Questions`}
+								>
+									<Blanks
+										config={wordsIntoSlots2}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
 
-						) : null}
-						{wordsIntoSlots1 ? (
-							<>
-								<Blanks
-									config={wordsIntoSlots1}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
+							) : null}
+							{wordsIntoSlots1 ? (
+								<AccordionArticle
+									id={`AccordionWordsIntoSlots1Accordion`}
+									title={`Put the words in the Order You Hear Them`}
+								>
+									<Blanks
+										config={wordsIntoSlots1}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
 
-						) : null}
-						{phraseTable1 ? (
-							<>
-								{/* / <AccordionArticle
-								// 	id={`fieldSettings`}
-								// 	title={`Field Settings`}
-								// */}
-								<h1>Dialogues</h1>
-								<PhraseTable
-									config={phraseTable1}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-								{/* </AccordionArticle> */}
-							</>
-						) : null}
-						{vocabulary1 ? (
-							<>
-								<h1>Vocabulary</h1>
-								<PhraseTable
-									config={vocabulary1}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{monologues ? (
-							<>
-								<h1>Monologues</h1>
-								<PhraseTable
-									config={monologues}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{vocabulary2 ? (
-							<>
-								<h1>Vocabulary</h1>
-								<PhraseTable
-									config={vocabulary2}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{phrases1 ? (
-							<>
-								<h1>Fill in the blanks</h1>
-								<Blanks
-									config={phrases1}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-
-						{phrases2 ? (
-							<>
-								<h1>Fill in the blanks</h1>
-								<Blanks
-									config={phrases2}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{jigsaw1 ? (
-							<>
-								<h1>Complete the Jigsaw</h1>
-								<Jigsaw
-									config={jigsaw1}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{jigsaw2 ? (
-							<>
-								<h1>Complete the Jigsaw</h1>
-								<Jigsaw
-									config={jigsaw2}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{jigsaw3 ? (
-							<>
-								<h1>Complete the Jigsaw</h1>
-								<Jigsaw
-									config={jigsaw3}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{phrases3 ? (
-							<>
-								<h1>Fill in the blanks</h1>
-								<Blanks
-									config={phrases3}
-									logError={this.logError}
-									showDialog={this.showDialog}
-								/>
-							</>
-						) : null}
-						{/* </Accordion> */}
+							) : null}
+							{phraseTable1 ? (
+								<>
+									<AccordionArticle
+										id={`accordionPhraseTable1Accordion`}
+										title={`Dialogues`}
+									>
+										<PhraseTable
+											config={phraseTable1}
+											logError={this.logError}
+											showDialog={this.showDialog}
+										/>
+									</AccordionArticle>
+								</>
+							) : null}
+							{vocabulary1 ? (
+								<AccordionArticle
+									id={`Vocabulary1Accordion`}
+									title={`Vocabulary`}
+								>
+									<PhraseTable
+										config={vocabulary1}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{monologues ? (
+								<AccordionArticle
+									id={`MonologuesAccordion`}
+									title={`Monologues`}
+								>
+									<PhraseTable
+										config={monologues}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{vocabulary2 ? (
+								<AccordionArticle
+									id={`Vocabulary2Accordion`}
+									title={`Vocabulary`}
+								>
+									<PhraseTable
+										config={vocabulary2}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{phrases1 ? (
+								<AccordionArticle
+									id={`Phrases1Accordion`}
+									title={`Fill in the Blanks`}
+								>
+									<Blanks
+										config={phrases1}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{phrases2 ? (
+								<AccordionArticle
+									id={`Phrases2Accordion`}
+									title={`Fill in the Blanks`}
+								>
+									<Blanks
+										config={phrases2}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{jigsaw1 ? (
+								<AccordionArticle
+									id={`Jigsaw1Accordion`}
+									title={`Complete the Jigsaw`}
+								>
+									<Jigsaw
+										config={jigsaw1}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{jigsaw2 ? (
+								<AccordionArticle
+									id={`Jigsaw2Accordion`}
+									title={`Complete the Jigsaw`}
+								>
+									<Jigsaw
+										config={jigsaw2}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{jigsaw3 ? (
+								<AccordionArticle
+									id={`Jigsaw3Accordion`}
+									title={`Complete the Jigsaw`}
+								>
+									<Jigsaw
+										config={jigsaw3}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+							{phrases3 ? (
+								<AccordionArticle
+									id={`phrases3Accordion`}
+									title={`Fill in the blanks`}
+								>
+									<Blanks
+										config={phrases3}
+										logError={this.logError}
+										showDialog={this.showDialog}
+									/>
+								</AccordionArticle>
+							) : null}
+						</Accordion>
 					</div>
 					<Footer />
 				</div>

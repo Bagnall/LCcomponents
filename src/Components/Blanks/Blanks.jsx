@@ -421,7 +421,8 @@ export class Blanks extends React.PureComponent {
 				break;
 			}
 			case "questions-answers": {
-				for (let i = 1; i <= questions.length; i++)
+				for (let i = 1; i <= questions.length; i++) {
+					const soundFile = `src/sounds/${soundFiles[i - 1]}`;
 					tableRows.push(
 						<tr key={`${id}row${i}`}>
 							<td>
@@ -439,7 +440,7 @@ export class Blanks extends React.PureComponent {
 							</td>
 							<td>
 								<AudioClip
-									soundFile={soundFiles[i - 1]}
+									soundFile={soundFile}
 								/>
 							</td>
 							{i < words.length / 2 ?
@@ -457,6 +458,7 @@ export class Blanks extends React.PureComponent {
 							}
 						</tr>
 					);
+				}
 				break;
 			}
 			default: {

@@ -1,55 +1,42 @@
-// WordParts.scss
+// DropDowns.scss
 
 @use "../../styles/_media-queries.module.scss" as *;
 @use "../../styles/_variables.module.scss" as *;
 
 html.debug {
-	.word-parts-container {
+	.drop-downs-container {
 		span {
 			border: 1px solid rgba(255, 0, 0, 0.2);
 		}
 	}
 }
-
-.word-parts-container {
+html.debug {
+	option.hint {
+		background-color: rgba(0, 255, 0, 0.1);
+	}
+}
+.drop-downs-container {
 	background: lightgrey;
-	table {
-		p {
-			margin: 0;
-			letter-spacing: 0.5rem;
+
+	p {
+		font-size: 1.4rem;
+		margin: 0;
+		select {
+			// color: red;
+			font-size: 1.4rem;
+			min-width: 12rem;
+			outline: none;
+			&.correct {
+				border-color: rgb(96, 214, 0);
+				background: rgba(0, 255, 0, 0.2);
+			}
+			&.incorrect {
+				border-color: red;
+				background: rgba(255, 0, 0, 0.2);
+			}
 		}
 	}
 
-	span {
-		&.animate {
-			animation-name: vertical-rotate;
-			animation-duration: 0.5s;
-			animation-timing-function: linear;
-			animation-iteration-count: 8;
-			background-color: rgba(0, 255, 255, 0.2);
-			border: 1px solid cyan;
-			box-sizing: border-box;
-		}
-		padding: 0.5rem 0;
-		font-size: 2rem;
-		cursor: pointer;
-		display: inline-block;
-		border: 1px solid white;
-		user-select: none;
-		&.error {
-			border: 1px solid red;
-			background: rgba(255, 0, 0, 0.2);
-		}
-	}
-
-	@keyframes vertical-rotate {
-		0% {
-			transform: rotateX(0deg);
-		}
-		100% {
-			transform: rotateX(360deg);
-		}
-	}
 	p.clue {
 		font-size: 1.4rem;
 		font-weight: bold;
@@ -84,11 +71,9 @@ html.debug {
 			border: none;
 			tr {
 				&.spacer {
-					// td {
 					background: lightgray;
 					border-left: none;
 					border-right: none;
-					// }
 					td {
 						border-left: none;
 						border-right: none;

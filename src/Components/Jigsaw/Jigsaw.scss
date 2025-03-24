@@ -17,12 +17,12 @@
 		overflow: visible;
 		width: $tile-size * 10px;
 		height: $tile-size * 8px;
+		max-height: 1300px;
 		&::before {
 			content: "";
 			width: $tile-size * 10px;
 			height: $tile-size * 4px;
 			background: lightgray;
-			border: ($border-width * 1px) lightgray solid;
 			position: absolute;
 			top: 0;
 			left: 0;
