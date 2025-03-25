@@ -167,6 +167,7 @@ export class DropDowns extends React.PureComponent {
 			<div
 				className={`drop-downs-container container`}
 				id={`${id ? id : ''}`}
+				key={`${id}DropDowns]`}
 			>
 				<p className={`instructions`}>{instructionsText}</p>
 

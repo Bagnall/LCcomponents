@@ -349,7 +349,7 @@ export class Jigsaw extends React.PureComponent {
 			cheatText,
 			descriptionText,
 			failCount,
-			id = '',
+			id,
 			instructionsText,
 			listenDescriptionText,
 			Pieces,
@@ -362,6 +362,7 @@ export class Jigsaw extends React.PureComponent {
 			<div
 				className='jigsaw-container container'
 				id={`${id ? id : ''}`}
+				key={`${id}Jigsaw`}
 				onTouchStart={this.handleMouseDown}
 				onTouchMove={this.handleMouseMove}
 				onTouchEnd={this.handleMouseEnd}

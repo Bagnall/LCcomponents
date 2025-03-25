@@ -63,6 +63,7 @@ export class PhraseTable extends React.PureComponent {
 			<div
 				className={`phrases-table-container container`}
 				id={`${id ? id : ''}`}
+				key={`${id}PhraseTable`}
 			>
 				<p className={`instructions`}>{instructionsText}</p>
 				<table>

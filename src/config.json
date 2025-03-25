@@ -1,8 +1,8 @@
 {
 	"phraseTable1": {
 		"component": "PhraseTable",
-		"id": "DropDowns1",
-		"instructionsText": "Select the correct adjective of nationality.",
+		"id": "PhraseTable1",
+		"instructionsText": "",
 		"phrases": [
 			[
 				"Salut, ça va ?",
@@ -69,7 +69,7 @@
 				"je-m-appelle-isabelle-Martin.mp3"
 			]
 		],
-		"titleText": "Select the Correct Adjective of Nationality"
+		"titleText": "Dialogues"
 	},
 	"vocabulary1": {
 		"component": "PhraseTable",
@@ -245,11 +245,12 @@
 				"Pleased to meet you (literally: delighted)",
 				"enchante.mp3"
 			]
-		]
+		],
+		"titleText": "Vocabulary"
 	},
-	"monologues": {
+	"monologues1": {
 		"component": "PhraseTable",
-		"id": "monologues",
+		"id": "monologues1",
 		"phrases": [
 			[
 				"Salut,  je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.",
@@ -266,7 +267,24 @@
 				"Good evening, my name’s Olivier Durand. I’ve been married to Alex for three years and I’m a librarian.",
 				"bonsoir-je-m-appelle-olivier-durand-je-suis-marie-avec-alex-depuis-trois-ans-et-je-suis-bibliothecaire.mp3"
 			]
-		]
+		],
+		"titleText": "Monologues"
+	},
+	"jigsaw1": {
+		"component": "Jigsaw",
+		"correctImage": "/src/images/cyclist-horse.jpg",
+		"id": "jigsaw1",
+		"incorrectImage": "/src/images/parrot-jaguar.jpg",
+		"congratulationsText": "Well done! You solved the puzzle!",
+		"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+		"descriptionText": "Un jeune homme, portant un t-shirt rouge, passe à vélo devant un cheval dans un champ par une journée ensoleillée.",
+		"descriptionTextComment": "Foreign language description of picture with nouns, verbs and lots of adjectives.'",
+		"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
+		"showHintsText": "Show hints when moving",
+		"soundFile": "/src/sounds/cyclist-horse.mp3",
+		"cheatText": "Cheat",
+		"listenDescriptionText": "Listen to the description",
+		"titleText": "Complete the Jigsaw"
 	},
 	"vocabulary2": {
 		"component": "PhraseTable",
@@ -397,9 +415,11 @@
 				"yesterday",
 				"hier.mp3"
 			]
-		]
+		],
+		"titleText": "Vocabulary"
 	},
 	"wordsIntoSlots1": {
+		"component": "Blanks",
 		"id": "wordsIntoSlots1",
 		"congratulationsText": "Well done!",
 		"instructionsText": "You will hear words containing on / om or oi or h as described in the pronunciation section. Drop each word into the boxes below as you hear it.",
@@ -428,7 +448,8 @@
 			"son",
 			"nom"
 		],
-		"soundFile": "phrase1.mp3"
+		"soundFile": "phrase1.mp3",
+		"titleText": "Put the Words in the Order You Hear Them"
 	},
 	"wordsIntoSlots2": {
 		"component": "Blanks",
@@ -455,7 +476,8 @@
 			"tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3",
 			"monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3",
 			"que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
-		]
+		],
+		"titleText": "Match the Answers to the Questions"
 	},
 	"dropdowns1": {
 		"component": "DropDowns",
@@ -480,7 +502,8 @@
 			"je-suis-francaise.mp3",
 			"je-suis-chinois.mp3",
 			"je-suis-senegalaise.mp3"
-		]
+		],
+		"titleText": "Select the Correct Adjective of Nationality"
 	},
 	"phrases1": {
 		"component": "Blanks",
@@ -506,7 +529,23 @@
 			"phrase1.mp3",
 			"phrase2.mp3",
 			"phrase3.mp3"
-		]
+		],
+		"titleText": "Fill in the Blanks"
+	},
+	"jigsaw2": {
+		"component": "Jigsaw",
+		"correctImage": "/src/images/parrot-jaguar.jpg",
+		"id": "jigsaw2",
+		"incorrectImage": "/src/images/cyclist-horse.jpg",
+		"congratulationsText": "Squawk! You solved the puzzle!",
+		"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+		"descriptionText": "Un beau perroquet dans une forêt luxuriante mangeant une noix du Brésil tout en regardant un jaguar au sol.",
+		"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
+		"showHintsText": "Show hints when moving",
+		"soundFile": "/src/sounds/parrot-jaguar.mp3",
+		"cheatText": "Cheat",
+		"listenDescriptionText": "Listen to the description",
+		"titleText": "Complete the Jigsaw"
 	},
 	"phrases2": {
 		"component": "Blanks",
@@ -530,7 +569,8 @@
 			"phrase4.mp3",
 			"phrase5.mp3",
 			"phrase6.mp3"
-		]
+		],
+		"titleText": "Fill in the Blanks"
 	},
 	"wordparts1": {
 		"cheatText": "Cheat",
@@ -550,7 +590,8 @@
 			"bonsoirmonamour.mp3",
 			"aurevoirmacherie.mp3",
 			"quellehorreurvalerie.mp3"
-		]
+		],
+		"titleText": "Select the parts of the words with the described sounds"
 	},
 	"phrases3": {
 		"blanksType": "phrases",
@@ -582,36 +623,8 @@
 			"phrase10.mp3",
 			"phrase11.mp3",
 			"phrase12.mp3"
-		]
-	},
-	"jigsaw1": {
-		"component": "Jigsaw",
-		"correctImage": "/src/images/cyclist-horse.jpg",
-		"id": "jigsaw1",
-		"incorrectImage": "/src/images/parrot-jaguar.jpg",
-		"congratulationsText": "Well done! You solved the puzzle!",
-		"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
-		"descriptionText": "Un jeune homme, portant un t-shirt rouge, passe à vélo devant un cheval dans un champ par une journée ensoleillée.",
-		"descriptionTextComment": "Foreign language description of picture with nouns, verbs and lots of adjectives.'",
-		"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
-		"showHintsText": "Show hints when moving",
-		"soundFile": "/src/sounds/cyclist-horse.mp3",
-		"cheatText": "Cheat",
-		"listenDescriptionText": "Listen to the description"
-	},
-	"jigsaw2": {
-		"component": "Jigsaw",
-		"correctImage": "/src/images/parrot-jaguar.jpg",
-		"id": "jigsaw2",
-		"incorrectImage": "/src/images/cyclist-horse.jpg",
-		"congratulationsText": "Squawk! You solved the puzzle!",
-		"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
-		"descriptionText": "Un beau perroquet dans une forêt luxuriante mangeant une noix du Brésil tout en regardant un jaguar au sol.",
-		"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
-		"showHintsText": "Show hints when moving",
-		"soundFile": "/src/sounds/parrot-jaguar.mp3",
-		"cheatText": "Cheat",
-		"listenDescriptionText": "Listen to the description"
+		],
+		"titleText": "Fill in the Blanks"
 	},
 	"jigsaw3": {
 		"component": "Jigsaw",
@@ -625,6 +638,7 @@
 		"showHintsText": "Show hints when moving",
 		"soundFile": "/src/sounds/car-windmill.mp3",
 		"cheatText": "Cheat",
-		"listenDescriptionText": "Listen to the description"
+		"listenDescriptionText": "Listen to the description",
+		"titleText": "Complete the Jigsaw"
 	}
 }

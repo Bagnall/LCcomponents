@@ -158,6 +158,7 @@ export class WordParts extends React.PureComponent {
 			<div
 				className={`word-parts-container container`}
 				id={`${id ? id : ''}`}
+				key={`${id}WordParts`}
 			>
 				<p className={`instructions`}>{instructionsText}</p>
 

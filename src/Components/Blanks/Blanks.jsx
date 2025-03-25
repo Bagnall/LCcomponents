@@ -246,8 +246,8 @@ export class Blanks extends React.PureComponent {
 			const {
 				congratulationsText,
 				nToPlace,
-				questions,
-				words,
+				// questions,
+				// words,
 			} = this.state;
 			let {
 				nPlaced = 0,
@@ -349,6 +349,7 @@ export class Blanks extends React.PureComponent {
 			words = [],
 			wordTiles,
 		} = this.state;
+		const { logError } = this.props;
 
 		const phraseList = new Array;
 		const tableRows = new Array;
@@ -443,25 +444,13 @@ export class Blanks extends React.PureComponent {
 									soundFile={soundFile}
 								/>
 							</td>
-							{i < words.length / 2 ?
-								<>
-									<td>{i + nRows}.</td>
-									<td>
-										<Word
-											className={`blank target`}
-											index={i - 1 + nRows}
-											key={`${id}word{$i + nRows}`}>{words[i - 1 + nRows]}</Word>
-									</td>
-								</>
-								:
-								null
-							}
 						</tr>
 					);
 				}
 				break;
 			}
 			default: {
+				const action = "Not a valid type of Blanks";
 				logError(action, error);
 			}
 		}
@@ -476,6 +465,7 @@ export class Blanks extends React.PureComponent {
 				onTouchStart={this.handleMouseDown}
 				onTouchMove={this.handleMouseMove}
 				onTouchEnd={this.handleMouseUp}
+				key={`${id}Blanks`}
 			>
 				<p className={`instructions`}>{instructionsText}</p>
 

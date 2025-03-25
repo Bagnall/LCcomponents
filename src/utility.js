@@ -41,7 +41,7 @@ export const arrayIncludesObject = (seeking, arrayToSearch) => {
 
 	// For an array of objects, checks if it includes the object in question
 	return arrayToSearch.some(element => {
-		return JSON.stringify(seeking) == JSON.stringify(element);
+		return JSON.stringify(seeking) === JSON.stringify(element);
 	});
 };
 
