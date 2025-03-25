@@ -1,5 +1,6 @@
 // WordParts.scss
 
+@use "../../styles/_colours.module.scss" as *;
 @use "../../styles/_media-queries.module.scss" as *;
 @use "../../styles/_variables.module.scss" as *;
 
@@ -26,8 +27,8 @@ html.debug {
 			animation-duration: 0.5s;
 			animation-timing-function: linear;
 			animation-iteration-count: 8;
-			background-color: rgba(0, 255, 255, 0.2);
-			border: 1px solid cyan;
+			background-color: $correct-background;
+			border: 1px solid $correct-border;
 			box-sizing: border-box;
 		}
 		padding: 0.5rem 0;
@@ -37,8 +38,8 @@ html.debug {
 		border: 1px solid white;
 		user-select: none;
 		&.error {
-			border: 1px solid red;
-			background: rgba(255, 0, 0, 0.2);
+			border: 1px solid $incorrect-border;
+			background: $incorrect-background;
 		}
 	}
 

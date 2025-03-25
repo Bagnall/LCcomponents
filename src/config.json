@@ -275,127 +275,127 @@
 			[
 				"être*",
 				"to be",
-				"phrase1.mp3"
+				"etre.mp3"
 			],
 			[
 				"marié.e",
 				"married",
-				"phrase1.mp3"
+				"marie.mp3"
 			],
 			[
 				"divorcé.e",
 				"divorced",
-				"phrase1.mp3"
+				"divorce.mp3"
 			],
 			[
 				"séparé.e",
 				"separated",
-				"phrase1.mp3"
+				"separe.mp3"
 			],
 			[
 				"fiancé.e",
 				"engaged",
-				"phrase1.mp3"
+				"fiance.mp3"
 			],
 			[
 				"pacsé.e",
 				"In a civil partnership",
-				"phrase1.mp3"
+				"pacse.mp3"
 			],
 			[
 				"célibataire",
 				"single",
-				"phrase1.mp3"
+				"celibataire.mp3"
 			],
 			[
 				"étudiant / étudiante",
 				"University student",
-				"phrase1.mp3"
+				"etudiante.mp3"
 			],
 			[
 				"élève",
 				"school pupil",
-				"phrase1.mp3"
+				"eleve.mp3"
 			],
 			[
 				"chercheur(m) / chercheuse(f)",
 				"researcher",
-				"phrase1.mp3"
+				"chercheuse.mp3"
 			],
 			[
 				"doctorant / doctorante",
 				"PhD student",
-				"phrase1.mp3"
+				"doctorant.mp3"
 			],
 			[
 				"professeur.e prof (m and f)",
 				"teacher, professeur",
-				"phrase1.mp3"
+				"professeure.mp3"
 			],
 			[
 				"médecin (m and f)",
 				"doctor",
-				"phrase1.mp3"
+				"medecin.mp3"
 			],
 			[
 				"archiviste",
 				"archiviste",
-				"phrase1.mp3"
+				"archiviste.mp3"
 			],
 			[
 				"bibliothécaire",
 				"librarian",
-				"phrase1.mp3"
+				"bibliothecaire.mp3"
 			],
 			[
 				"administrateur (m) administratrice(f)",
 				"administrator",
-				"phrase1.mp3"
+				"administratrice.mp3"
 			],
 			[
 				"informaticien.ne",
 				"IT specialist",
-				"phrase1.mp3"
+				"informaticien.mp3"
 			],
 			[
 				"avocat / avocate",
 				"lawyer",
-				"phrase1.mp3"
+				"avocate.mp3"
 			],
 			[
 				"Que faites-vous* (dans la vie) ?",
 				"What do you do (for a living)?",
-				"phrase1.mp3"
+				"que-faites-vous-dans-la-vie.mp3"
 			],
 			[
 				"Que fais-tu* (dans la vie) ?",
 				"What do you do (for a living)?",
-				"phrase1.mp3"
+				"que-fais-tu-dans-la-vie.mp3"
 			],
 			[
 				"Quelle est ta / votre profession ?",
 				"What’s your profession?",
-				"phrase1.mp3"
+				"quelle-est-votre-profession.mp3"
 			],
 			[
 				"Quel est ton / votre métier ?",
 				"What’s your profession?",
-				"phrase1.mp3"
+				"quel-est-ton-metier.mp3"
 			],
 			[
 				"depuis",
 				"for (a period of time), since",
-				"phrase1.mp3"
+				"depuis.mp3"
 			],
 			[
 				"malade",
 				"ill",
-				"phrase1.mp3"
+				"malade.mp3"
 			],
 			[
 				"hier",
 				"yesterday",
-				"phrase1.mp3"
+				"hier.mp3"
 			]
 		]
 	},
@@ -453,8 +453,8 @@
 		"soundFiles": [
 			"salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-jo-est-malade-depuis-hier.mp3",
 			"tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3",
-			"phrase1.mp3",
-			"phrase1.mp3"
+			"monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3",
+			"que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
 		]
 	},
 	"dropdowns1": {

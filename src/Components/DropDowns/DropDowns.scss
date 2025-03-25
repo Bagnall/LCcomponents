@@ -1,5 +1,5 @@
 // DropDowns.scss
-
+@use "../../styles/_colours.module.scss" as *;
 @use "../../styles/_media-queries.module.scss" as *;
 @use "../../styles/_variables.module.scss" as *;
 
@@ -27,12 +27,12 @@ html.debug {
 			min-width: 12rem;
 			outline: none;
 			&.correct {
-				border-color: rgb(96, 214, 0);
-				background: rgba(0, 255, 0, 0.2);
+				border-color: $correct-border;
+				background: $correct-background;
 			}
 			&.incorrect {
-				border-color: red;
-				background: rgba(255, 0, 0, 0.2);
+				border-color: $incorrect-border;
+				background: $incorrect-background;
 			}
 		}
 	}
